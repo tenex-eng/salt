@@ -1,7 +1,7 @@
 import type { Meta } from '@storybook/react-vite';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './table';
 
-const meta: Meta = { title: 'Primitives/Table' };
+const meta: Meta = { title: 'Components/Table' };
 export default meta;
 
 export function Basic() {

@@ -1,6 +1,6 @@
 import type { Meta } from '@storybook/react-vite';
 
-const meta: Meta = { title: 'Tokens/Colors' };
+const meta: Meta = { title: 'Foundations/Tokens' };
 export default meta;
 
 const base = ['background', 'foreground', 'primary', 'secondary', 'muted', 'accent', 'destructive', 'border'];

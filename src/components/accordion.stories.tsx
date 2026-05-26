@@ -1,7 +1,7 @@
 import type { Meta } from '@storybook/react-vite';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './accordion';
 
-const meta: Meta = { title: 'Primitives/Accordion' };
+const meta: Meta = { title: 'Components/Accordion' };
 export default meta;
 
 export function Basic() {
