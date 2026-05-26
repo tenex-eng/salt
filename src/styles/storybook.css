@@ -1,0 +1,12 @@
+@import './base.css';
+@import './security.css';
+
+body {
+  font-family: var(--font-sans);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+#storybook-root {
+  min-height: 100vh;
+}

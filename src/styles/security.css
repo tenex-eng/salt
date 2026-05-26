@@ -1,0 +1,44 @@
+@theme {
+  --color-severity-critical-bg: hsl(var(--severity-critical-bg));
+  --color-severity-critical-text: hsl(var(--severity-critical-text));
+  --color-severity-critical-border: hsl(var(--severity-critical-border));
+  --color-severity-high-bg: hsl(var(--severity-high-bg));
+  --color-severity-high-text: hsl(var(--severity-high-text));
+  --color-severity-high-border: hsl(var(--severity-high-border));
+  --color-severity-medium-bg: hsl(var(--severity-medium-bg));
+  --color-severity-medium-text: hsl(var(--severity-medium-text));
+  --color-severity-medium-border: hsl(var(--severity-medium-border));
+  --color-severity-low-bg: hsl(var(--severity-low-bg));
+  --color-severity-low-text: hsl(var(--severity-low-text));
+  --color-severity-low-border: hsl(var(--severity-low-border));
+}
+
+:root {
+  --severity-critical-bg: 0 86% 97%;
+  --severity-critical-text: 0 72% 42%;
+  --severity-critical-border: 0 72% 84%;
+  --severity-high-bg: 24 94% 96%;
+  --severity-high-text: 20 90% 40%;
+  --severity-high-border: 24 94% 82%;
+  --severity-medium-bg: 45 96% 94%;
+  --severity-medium-text: 36 92% 34%;
+  --severity-medium-border: 45 96% 78%;
+  --severity-low-bg: 142 76% 96%;
+  --severity-low-text: 142 72% 29%;
+  --severity-low-border: 142 76% 80%;
+}
+
+.dark {
+  --severity-critical-bg: 0 62% 18%;
+  --severity-critical-text: 0 93% 84%;
+  --severity-critical-border: 0 72% 32%;
+  --severity-high-bg: 24 70% 18%;
+  --severity-high-text: 24 94% 82%;
+  --severity-high-border: 24 70% 32%;
+  --severity-medium-bg: 45 70% 16%;
+  --severity-medium-text: 45 96% 78%;
+  --severity-medium-border: 45 70% 30%;
+  --severity-low-bg: 142 55% 14%;
+  --severity-low-text: 142 76% 78%;
+  --severity-low-border: 142 55% 28%;
+}
