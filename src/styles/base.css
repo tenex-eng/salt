@@ -3,29 +3,444 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-sans:
+    Inter, var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, sans-serif;
+  --font-heading: var(--font-geist-sans), Geist Sans, system-ui, sans-serif;
+  --font-mono:
+    var(--font-geist-mono), Geist Mono, SF Mono, Menlo, Monaco, Consolas, Liberation Mono,
+    Courier New, monospace;
 
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: hsl(var(--secondary-foreground));
-  --color-muted: var(--muted);
-  --color-muted-foreground: hsl(var(--muted-foreground));
-  --color-accent: var(--accent);
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-destructive: hsl(var(--destructive));
-  --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: hsl(var(--ring));
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
 
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-brandlight: hsl(var(--brandlight));
+  --color-brandlight-foreground: hsl(var(--brandlight-foreground));
+
+  --color-branddark: hsl(var(--branddark));
+  --color-branddark-foreground: hsl(var(--branddark-foreground));
+
+  --color-brand: hsl(var(--brand));
+  --color-brand-foreground: hsl(var(--brand-foreground));
+
+  --color-brandcomplement: hsl(var(--brand-complement-gold));
+  --color-brandcomplement-foreground: hsl(var(--brand-complement-gold-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-accent-fade: var(--accent-fade);
+
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+
+  --color-toast-bg: var(--toast-bg);
+  --color-toast-foreground: var(--toast-foreground);
+
+  --color-case-priority-critical: hsl(var(--case-priority-critical));
+  --color-case-priority-high: hsl(var(--case-priority-high));
+  --color-case-priority-medium: hsl(var(--case-priority-medium));
+  --color-case-priority-low: hsl(var(--case-priority-low));
+
+  --color-severity-critical-dot: hsl(var(--severity-critical-dot));
+  --color-severity-critical-bg: hsl(var(--severity-critical-bg));
+  --color-severity-critical-bg-alpha: hsl(var(--severity-critical-bg-alpha));
+  --color-severity-critical-border: hsl(var(--severity-critical-border));
+  --color-severity-critical-text: hsl(var(--severity-critical-text));
+  --color-severity-critical-tag-bg: hsl(var(--severity-critical-tag-bg));
+  --color-severity-critical-tag-text: hsl(var(--severity-critical-tag-text));
+  --color-severity-critical-badge-bg: hsl(var(--severity-critical-badge-bg));
+  --color-severity-critical-badge-text: hsl(var(--severity-critical-badge-text));
+
+  --color-severity-high-dot: hsl(var(--severity-high-dot));
+  --color-severity-high-bg: hsl(var(--severity-high-bg));
+  --color-severity-high-bg-alpha: hsl(var(--severity-high-bg-alpha));
+  --color-severity-high-border: hsl(var(--severity-high-border));
+  --color-severity-high-text: hsl(var(--severity-high-text));
+  --color-severity-high-tag-bg: hsl(var(--severity-high-tag-bg));
+  --color-severity-high-tag-text: hsl(var(--severity-high-tag-text));
+  --color-severity-high-badge-bg: hsl(var(--severity-high-badge-bg));
+  --color-severity-high-badge-text: hsl(var(--severity-high-badge-text));
+
+  --color-severity-medium-dot: hsl(var(--severity-medium-dot));
+  --color-severity-medium-bg: hsl(var(--severity-medium-bg));
+  --color-severity-medium-bg-alpha: hsl(var(--severity-medium-bg-alpha));
+  --color-severity-medium-border: hsl(var(--severity-medium-border));
+  --color-severity-medium-text: hsl(var(--severity-medium-text));
+  --color-severity-medium-tag-bg: hsl(var(--severity-medium-tag-bg));
+  --color-severity-medium-tag-text: hsl(var(--severity-medium-tag-text));
+  --color-severity-medium-badge-bg: hsl(var(--severity-medium-badge-bg));
+  --color-severity-medium-badge-text: hsl(var(--severity-medium-badge-text));
+
+  --color-severity-low-dot: hsl(var(--severity-low-dot));
+  --color-severity-low-bg: hsl(var(--severity-low-bg));
+  --color-severity-low-bg-alpha: hsl(var(--severity-low-bg-alpha));
+  --color-severity-low-border: hsl(var(--severity-low-border));
+  --color-severity-low-text: hsl(var(--severity-low-text));
+  --color-severity-low-tag-bg: hsl(var(--severity-low-tag-bg));
+  --color-severity-low-tag-text: hsl(var(--severity-low-tag-text));
+  --color-severity-low-badge-bg: hsl(var(--severity-low-badge-bg));
+  --color-severity-low-badge-text: hsl(var(--severity-low-badge-text));
+
+  --color-alert-critical-dot: hsl(var(--alert-critical-dot));
+  --color-alert-critical-bg: hsl(var(--alert-critical-bg));
+  --color-alert-critical-bg-alpha: hsl(var(--alert-critical-bg-alpha));
+  --color-alert-critical-border: hsl(var(--alert-critical-border));
+  --color-alert-critical-text: hsl(var(--alert-critical-text));
+  --color-alert-critical-tag-bg: hsl(var(--alert-critical-tag-bg));
+  --color-alert-critical-tag-text: hsl(var(--alert-critical-tag-text));
+  --color-alert-critical-badge-bg: hsl(var(--alert-critical-badge-bg));
+  --color-alert-critical-badge-text: hsl(var(--alert-critical-badge-text));
+  --color-alert-critical-icon: hsl(var(--alert-critical-icon));
+  --color-alert-critical-hover: hsl(var(--alert-critical-hover));
+  --color-alert-critical-active: hsl(var(--alert-critical-active));
+
+  --color-alert-high-dot: hsl(var(--alert-high-dot));
+  --color-alert-high-bg: hsl(var(--alert-high-bg));
+  --color-alert-high-bg-alpha: hsl(var(--alert-high-bg-alpha));
+  --color-alert-high-border: hsl(var(--alert-high-border));
+  --color-alert-high-text: hsl(var(--alert-high-text));
+  --color-alert-high-tag-bg: hsl(var(--alert-high-tag-bg));
+  --color-alert-high-tag-text: hsl(var(--alert-high-tag-text));
+  --color-alert-high-badge-bg: hsl(var(--alert-high-badge-bg));
+  --color-alert-high-badge-text: hsl(var(--alert-high-badge-text));
+  --color-alert-high-icon: hsl(var(--alert-high-icon));
+  --color-alert-high-hover: hsl(var(--alert-high-hover));
+  --color-alert-high-active: hsl(var(--alert-high-active));
+
+  --color-alert-medium-dot: hsl(var(--alert-medium-dot));
+  --color-alert-medium-bg: hsl(var(--alert-medium-bg));
+  --color-alert-medium-bg-alpha: hsl(var(--alert-medium-bg-alpha));
+  --color-alert-medium-border: hsl(var(--alert-medium-border));
+  --color-alert-medium-text: hsl(var(--alert-medium-text));
+  --color-alert-medium-tag-bg: hsl(var(--alert-medium-tag-bg));
+  --color-alert-medium-tag-text: hsl(var(--alert-medium-tag-text));
+  --color-alert-medium-badge-bg: hsl(var(--alert-medium-badge-bg));
+  --color-alert-medium-badge-text: hsl(var(--alert-medium-badge-text));
+  --color-alert-medium-icon: hsl(var(--alert-medium-icon));
+  --color-alert-medium-hover: hsl(var(--alert-medium-hover));
+  --color-alert-medium-active: hsl(var(--alert-medium-active));
+
+  --color-alert-low-dot: hsl(var(--alert-low-dot));
+  --color-alert-low-bg: hsl(var(--alert-low-bg));
+  --color-alert-low-bg-alpha: hsl(var(--alert-low-bg-alpha));
+  --color-alert-low-border: hsl(var(--alert-low-border));
+  --color-alert-low-text: hsl(var(--alert-low-text));
+  --color-alert-low-tag-bg: hsl(var(--alert-low-tag-bg));
+  --color-alert-low-tag-text: hsl(var(--alert-low-tag-text));
+  --color-alert-low-badge-bg: hsl(var(--alert-low-badge-bg));
+  --color-alert-low-badge-text: hsl(var(--alert-low-badge-text));
+  --color-alert-low-icon: hsl(var(--alert-low-icon));
+  --color-alert-low-hover: hsl(var(--alert-low-hover));
+  --color-alert-low-active: hsl(var(--alert-low-active));
+
+  /* ─── Tenex Color Palette (oklch, wide gamut) ─── */
+  /* 9 scales, 23 weights per scale (000–999). */
+  /* Universal Color Palette standard — weight = (100 - CIE L*) × 10 */
+
+  --color-cyan-025: oklch(97.653% 0.01351 207.04);
+  --color-cyan-050: oklch(95.418% 0.02638 207.04);
+  --color-cyan-075: oklch(93.071% 0.03989 207.04);
+  --color-cyan-100: oklch(90.836% 0.05276 207.04);
+  --color-cyan-150: oklch(86.254% 0.07914 207.04);
+  --color-cyan-200: oklch(81.449% 0.10681 207.04);
+  --color-cyan-250: oklch(77.493% 0.10162 207.04);
+  --color-cyan-300: oklch(73.071% 0.09583 207.04);
+  --color-cyan-350: oklch(68.882% 0.09033 207.04);
+  --color-cyan-400: oklch(64.694% 0.08484 207.04);
+  --color-cyan-450: oklch(60.505% 0.07935 207.04);
+  --color-cyan-500: oklch(55.851% 0.07324 207.04);
+  --color-cyan-550: oklch(51.895% 0.06805 207.04);
+  --color-cyan-600: oklch(47.706% 0.06256 207.04);
+  --color-cyan-650: oklch(43.284% 0.05676 207.04);
+  --color-cyan-700: oklch(39.095% 0.05127 207.04);
+  --color-cyan-750: oklch(34.907% 0.04578 207.04);
+  --color-cyan-800: oklch(30.718% 0.04028 207.04);
+  --color-cyan-850: oklch(26.296% 0.03449 207.04);
+  --color-cyan-900: oklch(22.108% 0.02899 207.04);
+  --color-cyan-950: oklch(17.453% 0.02289 207.04);
+
+  /* Slate: cool neutral (hue 243, near-zero chroma). Preferred for UI
+     surfaces in both light and dark mode — Highlights (000-050) for light,
+     Shadows (950-999) for dark. Low saturation lets signal colors carry
+     meaning without competing with the backdrop. */
+
+  --color-slate-025: oklch(97.859% 0.00052 248.63);
+  --color-slate-050: oklch(95.718% 0.00104 248.63);
+  --color-slate-075: oklch(93.578% 0.00156 248.63);
+  --color-slate-100: oklch(91.437% 0.00208 248.63);
+  --color-slate-150: oklch(87.155% 0.00312 248.63);
+  --color-slate-200: oklch(82.873% 0.00415 248.63);
+  --color-slate-250: oklch(78.592% 0.00519 248.63);
+  --color-slate-300: oklch(74.31% 0.00623 248.63);
+  --color-slate-350: oklch(69.6% 0.00737 248.63);
+  --color-slate-400: oklch(65.319% 0.00841 248.63);
+  --color-slate-450: oklch(61.037% 0.00945 248.63);
+  --color-slate-500: oklch(56.755% 0.01049 248.63);
+  --color-slate-550: oklch(52.474% 0.01153 248.63);
+  --color-slate-600: oklch(48.192% 0.01256 248.63);
+  --color-slate-650: oklch(43.91% 0.0136 248.63);
+  --color-slate-700: oklch(39.629% 0.01464 248.63);
+  --color-slate-750: oklch(35.347% 0.01568 248.63);
+  --color-slate-800: oklch(31.065% 0.01672 248.63);
+  --color-slate-850: oklch(26.784% 0.01776 248.63);
+  --color-slate-900: oklch(23.358% 0.01859 248.63);
+  --color-slate-950: oklch(17.743% 0.01412 248.63);
+
+  --color-red-025: oklch(97.95% 0.01043 27.319);
+  --color-red-050: oklch(95.901% 0.02085 27.319);
+  --color-red-075: oklch(93.851% 0.03128 27.319);
+  --color-red-100: oklch(91.801% 0.0417 27.319);
+  --color-red-150: oklch(87.702% 0.06255 27.319);
+  --color-red-200: oklch(83.71% 0.08285 27.319);
+  --color-red-250: oklch(79.611% 0.1037 27.319);
+  --color-red-300: oklch(75.512% 0.12455 27.319);
+  --color-red-350: oklch(71.52% 0.14485 27.319);
+  --color-red-400: oklch(67.421% 0.1657 27.319);
+  --color-red-450: oklch(63.429% 0.18601 27.319);
+  --color-red-500: oklch(57.712% 0.21509 27.319);
+  --color-red-550: oklch(55.034% 0.20511 27.319);
+  --color-red-600: oklch(50.572% 0.18848 27.319);
+  --color-red-650: oklch(45.961% 0.17129 27.319);
+  --color-red-700: oklch(41.499% 0.15466 27.319);
+  --color-red-750: oklch(37.037% 0.13803 27.319);
+  --color-red-800: oklch(32.426% 0.12085 27.319);
+  --color-red-850: oklch(27.963% 0.10422 27.319);
+  --color-red-900: oklch(23.501% 0.08759 27.319);
+  --color-red-950: oklch(18.593% 0.06929 27.319);
+
+  --color-orange-025: oklch(97.915% 0.0132 47.602);
+  --color-orange-050: oklch(95.909% 0.02589 47.602);
+  --color-orange-075: oklch(93.824% 0.03909 47.602);
+  --color-orange-100: oklch(91.819% 0.05178 47.602);
+  --color-orange-150: oklch(87.728% 0.07767 47.602);
+  --color-orange-200: oklch(83.637% 0.10355 47.602);
+  --color-orange-250: oklch(79.547% 0.12944 47.602);
+  --color-orange-300: oklch(75.536% 0.15482 47.602);
+  --color-orange-350: oklch(70.483% 0.1868 47.602);
+  --color-orange-400: oklch(67.174% 0.17803 47.602);
+  --color-orange-450: oklch(62.707% 0.16619 47.602);
+  --color-orange-500: oklch(58.074% 0.15392 47.602);
+  --color-orange-550: oklch(53.938% 0.14295 47.602);
+  --color-orange-600: oklch(49.47% 0.13111 47.602);
+  --color-orange-650: oklch(45.169% 0.11971 47.602);
+  --color-orange-700: oklch(40.701% 0.10787 47.602);
+  --color-orange-750: oklch(36.234% 0.09603 47.602);
+  --color-orange-800: oklch(31.767% 0.08419 47.602);
+  --color-orange-850: oklch(27.465% 0.07279 47.602);
+  --color-orange-900: oklch(22.998% 0.06095 47.602);
+  --color-orange-950: oklch(18.2% 0.04824 47.602);
+
+  --color-yellow-025: oklch(97.809% 0.02735 91.964);
+  --color-yellow-050: oklch(95.618% 0.05471 91.964);
+  --color-yellow-075: oklch(93.469% 0.08154 91.964);
+  --color-yellow-100: oklch(91.319% 0.10838 91.964);
+  --color-yellow-150: oklch(86.11% 0.17341 91.964);
+  --color-yellow-200: oklch(82.826% 0.1668 91.964);
+  --color-yellow-250: oklch(78.448% 0.15798 91.964);
+  --color-yellow-300: oklch(74.252% 0.14953 91.964);
+  --color-yellow-350: oklch(69.873% 0.14071 91.964);
+  --color-yellow-400: oklch(65.495% 0.13189 91.964);
+  --color-yellow-450: oklch(61.299% 0.12344 91.964);
+  --color-yellow-500: oklch(56.738% 0.11426 91.964);
+  --color-yellow-550: oklch(52.542% 0.10581 91.964);
+  --color-yellow-600: oklch(48.346% 0.09736 91.964);
+  --color-yellow-650: oklch(43.967% 0.08854 91.964);
+  --color-yellow-700: oklch(39.771% 0.08009 91.964);
+  --color-yellow-750: oklch(35.393% 0.07127 91.964);
+  --color-yellow-800: oklch(31.014% 0.06246 91.964);
+  --color-yellow-850: oklch(26.818% 0.05401 91.964);
+  --color-yellow-900: oklch(22.44% 0.04519 91.964);
+  --color-yellow-950: oklch(17.696% 0.03564 91.964);
+
+  --color-green-025: oklch(97.764% 0.0102 149.2);
+  --color-green-050: oklch(95.404% 0.02097 149.2);
+  --color-green-075: oklch(93.168% 0.03117 149.2);
+  --color-green-100: oklch(90.932% 0.04138 149.2);
+  --color-green-150: oklch(86.335% 0.06235 149.2);
+  --color-green-200: oklch(81.863% 0.08275 149.2);
+  --color-green-250: oklch(77.267% 0.10372 149.2);
+  --color-green-300: oklch(72.795% 0.12413 149.2);
+  --color-green-350: oklch(68.199% 0.1451 149.2);
+  --color-green-400: oklch(62.733% 0.17004 149.2);
+  --color-green-450: oklch(59.45% 0.16114 149.2);
+  --color-green-500: oklch(55.073% 0.14928 149.2);
+  --color-green-550: oklch(51.062% 0.1384 149.2);
+  --color-green-600: oklch(46.867% 0.12703 149.2);
+  --color-green-650: oklch(42.673% 0.11567 149.2);
+  --color-green-700: oklch(38.478% 0.1043 149.2);
+  --color-green-750: oklch(34.284% 0.09293 149.2);
+  --color-green-800: oklch(30.09% 0.08156 149.2);
+  --color-green-850: oklch(25.895% 0.07019 149.2);
+  --color-green-900: oklch(21.701% 0.05882 149.2);
+  --color-green-950: oklch(17.142% 0.04646 149.2);
+
+  --color-blue-025: oklch(97.775% 0.01137 229);
+  --color-blue-050: oklch(95.55% 0.02274 229);
+  --color-blue-075: oklch(93.324% 0.03412 229);
+  --color-blue-100: oklch(91.099% 0.04549 229);
+  --color-blue-150: oklch(86.649% 0.06823 229);
+  --color-blue-200: oklch(82.199% 0.09098 229);
+  --color-blue-250: oklch(77.748% 0.11372 229);
+  --color-blue-300: oklch(72.556% 0.14026 229);
+  --color-blue-350: oklch(69.038% 0.13346 229);
+  --color-blue-400: oklch(64.861% 0.12538 229);
+  --color-blue-450: oklch(60.463% 0.11688 229);
+  --color-blue-500: oklch(56.066% 0.10838 229);
+  --color-blue-550: oklch(51.889% 0.1003 229);
+  --color-blue-600: oklch(47.711% 0.09223 229);
+  --color-blue-650: oklch(43.534% 0.08415 229);
+  --color-blue-700: oklch(39.136% 0.07565 229);
+  --color-blue-750: oklch(34.959% 0.06758 229);
+  --color-blue-800: oklch(30.781% 0.0595 229);
+  --color-blue-850: oklch(26.384% 0.051 229);
+  --color-blue-900: oklch(22.207% 0.04293 229);
+  --color-blue-950: oklch(17.589% 0.034 229);
+
+  --color-purple-025: oklch(97.904% 0.01127 292.95);
+  --color-purple-050: oklch(95.808% 0.02254 292.95);
+  --color-purple-075: oklch(93.712% 0.03381 292.95);
+  --color-purple-100: oklch(91.716% 0.04454 292.95);
+  --color-purple-150: oklch(87.524% 0.06708 292.95);
+  --color-purple-200: oklch(83.432% 0.08908 292.95);
+  --color-purple-250: oklch(79.34% 0.11108 292.95);
+  --color-purple-300: oklch(75.248% 0.13308 292.95);
+  --color-purple-350: oklch(71.156% 0.15508 292.95);
+  --color-purple-400: oklch(67.163% 0.17655 292.95);
+  --color-purple-450: oklch(63.171% 0.19801 292.95);
+  --color-purple-500: oklch(58.979% 0.22055 292.95);
+  --color-purple-550: oklch(55.386% 0.23987 292.95);
+  --color-purple-600: oklch(54.088% 0.24684 292.95);
+  --color-purple-650: oklch(46.541% 0.2124 292.95);
+  --color-purple-700: oklch(41.887% 0.19116 292.95);
+  --color-purple-750: oklch(37.359% 0.17049 292.95);
+  --color-purple-800: oklch(32.83% 0.14983 292.95);
+  --color-purple-850: oklch(28.302% 0.12916 292.95);
+  --color-purple-900: oklch(23.648% 0.10792 292.95);
+  --color-purple-950: oklch(18.742% 0.08553 292.95);
+
+  /* Neutral: pure achromatic (zero chroma). Kept as a fallback — prefer
+     slate for surfaces. May be useful for truly colorless UI elements. */
+  --color-neutral-000: oklch(100% 0 none);
+  --color-neutral-025: oklch(97.75% 0 none);
+  --color-neutral-050: oklch(95.75% 0 none);
+  --color-neutral-075: oklch(93.5% 0 none);
+  --color-neutral-100: oklch(91.5% 0 none);
+  --color-neutral-150: oklch(87% 0 none);
+  --color-neutral-200: oklch(82.75% 0 none);
+  --color-neutral-250: oklch(78.5% 0 none);
+  --color-neutral-300: oklch(74.25% 0 none);
+  --color-neutral-350: oklch(69.75% 0 none);
+  --color-neutral-400: oklch(65.5% 0 none);
+  --color-neutral-450: oklch(61.25% 0 none);
+  --color-neutral-500: oklch(56.75% 0 none);
+  --color-neutral-550: oklch(52.5% 0 none);
+  --color-neutral-600: oklch(48.25% 0 none);
+  --color-neutral-650: oklch(44% 0 none);
+  --color-neutral-700: oklch(39.75% 0 none);
+  --color-neutral-750: oklch(35.25% 0 none);
+  --color-neutral-800: oklch(31% 0 none);
+  --color-neutral-850: oklch(26.75% 0 none);
+  --color-neutral-900: oklch(22.5% 0 none);
+  --color-neutral-950: oklch(17.75% 0 none);
+  --color-neutral-999: oklch(0% 0 none);
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-collapsible-down: collapsible-down 0.15s ease-out;
+  --animate-collapsible-up: collapsible-up 0.15s ease-out;
+  --animate-shimmer: shimmer 2s infinite;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+  @keyframes collapsible-down {
+    from {
+      height: 0;
+      opacity: 0;
+    }
+    to {
+      height: var(--radix-collapsible-content-height);
+      opacity: 1;
+    }
+  }
+  @keyframes collapsible-up {
+    from {
+      height: var(--radix-collapsible-content-height);
+      opacity: 1;
+    }
+    to {
+      height: 0;
+      opacity: 0;
+    }
+  }
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+}
+
+/* Intent tokens use @theme inline because their values change at runtime (light/dark). */
+@theme inline {
+  --color-surface-primary-bg: var(--surface-primary-bg);
+  --color-surface-primary-fg: var(--surface-primary-fg);
+  --color-surface-primary-border: var(--surface-primary-border);
+  --color-surface-secondary-bg: var(--surface-secondary-bg);
+  --color-surface-secondary-fg: var(--surface-secondary-fg);
+  --color-surface-secondary-border: var(--surface-secondary-border);
+  --color-surface-auxiliary-bg: var(--surface-auxiliary-bg);
+  --color-surface-auxiliary-fg: var(--surface-auxiliary-fg);
+  --color-surface-auxiliary-border: var(--surface-auxiliary-border);
+
+  --color-action-primary-bg: var(--action-primary-bg);
+  --color-action-primary-fg: var(--action-primary-fg);
+  --color-action-primary-border: var(--action-primary-border);
+  --color-action-secondary-bg: var(--action-secondary-bg);
+  --color-action-secondary-fg: var(--action-secondary-fg);
+  --color-action-secondary-border: var(--action-secondary-border);
+  --color-action-auxiliary-bg: var(--action-auxiliary-bg);
+  --color-action-auxiliary-fg: var(--action-auxiliary-fg);
+  --color-action-auxiliary-border: var(--action-auxiliary-border);
+
+  --color-control-bg: var(--control-bg);
+  --color-control-fg: var(--control-fg);
+  --color-control-border: var(--control-border);
+
+  /* Expression palette: 6 canonical tones × 5 properties */
   --color-neutral-subtle: var(--neutral-subtle);
   --color-neutral-fg: var(--neutral-fg);
   --color-neutral-border: var(--neutral-border);
@@ -61,126 +476,616 @@
   --color-danger-border: var(--danger-border);
   --color-danger-solid: var(--danger-solid);
   --color-danger-solid-fg: var(--danger-solid-fg);
-
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
 }
 
+/* ─── Surface Modes (Mise en Mode) ─────────────────────────────────────────
+   Each mode is a complete curation of the intent set for its elevation tier.
+   Apply on elevated primitives — Dialog/AlertDialog/Sheet (primary),
+   Popover/DropdownMenu/Select/Tooltip/HoverCard/NavigationMenu (secondary).
+
+   Inside the scope, both the raw intent tokens (--border, --background, …)
+   AND the Tailwind @theme aliases (--color-border, --color-background, …)
+   are re-declared. The aliases are required because Tailwind's @theme emits
+   `--color-X: var(--X)` at :root; Chrome computes that once and inherits
+   the resolved value. Re-declaring at the mode forces recomputation within
+   the subtree so `bg-border`, `border-border`, `bg-muted`, etc. resolve to
+   the tier's value.
+
+   These blocks use plain CSS class selectors (not @utility) because
+   Tailwind v4's @utility directive strips custom properties in the
+   @theme namespace (--color-*). Plain class rules bypass that filter.
+
+   Auxiliary is the global default (:root / .dark); no class needed.
+   To add a new intent, curate it in :root / .dark, then re-scope here
+   plus its Tailwind alias. */
+
+.surface-primary-mode {
+  /* Intents */
+  --background: var(--surface-primary-bg);
+  --foreground: var(--surface-primary-fg);
+  --card: var(--surface-primary-bg);
+  --card-foreground: var(--surface-primary-fg);
+  --border: var(--surface-primary-border);
+  --input: var(--surface-primary-border);
+  --control-bg: var(--surface-primary-bg);
+  --control-fg: var(--surface-primary-fg);
+  --control-border: var(--surface-primary-border);
+  --neutral-subtle: var(--surface-primary-subtle);
+
+  /* Tailwind @theme alias chain */
+  --color-background: var(--surface-primary-bg);
+  --color-foreground: var(--surface-primary-fg);
+  --color-card: var(--surface-primary-bg);
+  --color-card-foreground: var(--surface-primary-fg);
+  --color-border: var(--surface-primary-border);
+  --color-input: var(--surface-primary-border);
+  --color-muted: var(--surface-primary-subtle);
+  --color-accent: var(--surface-primary-subtle);
+  --color-secondary: var(--surface-primary-subtle);
+  --color-accent-fade: var(--surface-primary-subtle);
+}
+
+.surface-secondary-mode {
+  /* Intents */
+  --background: var(--surface-secondary-bg);
+  --foreground: var(--surface-secondary-fg);
+  --card: var(--surface-secondary-bg);
+  --card-foreground: var(--surface-secondary-fg);
+  --border: var(--surface-secondary-border);
+  --input: var(--surface-secondary-border);
+  --control-bg: var(--surface-secondary-bg);
+  --control-fg: var(--surface-secondary-fg);
+  --control-border: var(--surface-secondary-border);
+  --neutral-subtle: var(--surface-secondary-subtle);
+
+  /* Tailwind @theme alias chain */
+  --color-background: var(--surface-secondary-bg);
+  --color-foreground: var(--surface-secondary-fg);
+  --color-card: var(--surface-secondary-bg);
+  --color-card-foreground: var(--surface-secondary-fg);
+  --color-border: var(--surface-secondary-border);
+  --color-input: var(--surface-secondary-border);
+  --color-muted: var(--surface-secondary-subtle);
+  --color-accent: var(--surface-secondary-subtle);
+  --color-secondary: var(--surface-secondary-subtle);
+  --color-accent-fade: var(--surface-secondary-subtle);
+}
+
+@layer base {
 :root {
-  --radius: 0.625rem;
-  --background: oklch(100% 0 none);
-  --foreground: oklch(17.743% 0.01412 248.63);
-  --card: var(--background);
-  --card-foreground: var(--foreground);
-  --popover: var(--background);
-  --popover-foreground: var(--foreground);
-  --primary: 188 95% 35%;
-  --primary-foreground: 0 0% 100%;
-  --secondary: oklch(96.8% 0.006 247.9);
-  --secondary-foreground: 222.2 47.4% 11.2%;
-  --muted: oklch(96.8% 0.006 247.9);
+  /* Legacy tokens aliased to Mise en Mode (see end of :root for source values).
+     bg/fg/border call sites (bg-background, border-border, etc.) inherit through
+     these aliases; edit the --surface-* / --neutral-subtle tokens to reshape. */
+  --background: var(--surface-auxiliary-bg);
+  --foreground: var(--surface-auxiliary-fg);
+
+  --card: var(--surface-auxiliary-bg);
+  --card-foreground: var(--surface-auxiliary-fg);
+
+  --popover: var(--surface-secondary-bg);
+  --popover-foreground: var(--surface-secondary-fg);
+
+  --toast-bg: var(--surface-secondary-bg);
+  --toast-foreground: var(--surface-secondary-fg);
+
+  /* Primary and secondary colors - Tenex brand cyan */
+  --primary: 187 72% 64%;
+  --primary-foreground: 206 58% 8.4%;
+  --secondary: var(--neutral-subtle);
+  --secondary-foreground: 206 47% 11.2%;
+
+  /* UI element colors */
+  --muted: var(--neutral-subtle);
   --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: oklch(96.8% 0.006 247.9);
-  --accent-foreground: 222.2 47.4% 11.2%;
+  --accent: var(--neutral-subtle);
+  --accent-foreground: 206 47% 11.2%;
+  --accent-fade: var(--neutral-subtle);
+
+  /* Brand colors - Tenex */
+  --brandlight: 187 72% 64%;
+  --brandlight-foreground: 206 58% 8.4%;
+  --branddark: 206 58% 8.4%;
+  --branddark-foreground: 187 72% 64%;
+  --brand: 187 72% 64%;
+  --brand-foreground: 206 58% 8.4%;
+
+  /* System colors */
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 0 0% 98%;
-  --border: oklch(92.9% 0.013 255.5);
-  --input: var(--border);
-  --ring: 188 95% 35%;
+  --destructive-foreground: 210 40% 98%;
+  --border: var(--surface-auxiliary-border);
+  --input: var(--surface-auxiliary-border);
+  --ring: 187 72% 64%;
 
-  --neutral-subtle: oklch(96.8% 0.006 247.9);
-  --neutral-fg: oklch(48.192% 0.01256 248.63);
-  --neutral-border: oklch(80.7% 0.01 248.6);
-  --neutral-solid: oklch(48.192% 0.01256 248.63);
-  --neutral-solid-fg: oklch(100% 0 none);
+  /* Border radius */
+  --radius: 0.3rem;
 
-  --info-subtle: oklch(95% 0.03 229);
-  --info-fg: oklch(47.711% 0.09223 229);
-  --info-border: oklch(78% 0.08 229);
-  --info-solid: oklch(55% 0.11 229);
-  --info-solid-fg: oklch(100% 0 none);
+  /* Chart colors */
+  --chart-1: 12 76% 61%;
+  --chart-2: 173 58% 39%;
+  --chart-3: 197 37% 24%;
+  --chart-4: 43 74% 66%;
+  --chart-5: 27 87% 67%;
 
-  --success-subtle: oklch(95% 0.04 149.2);
-  --success-fg: oklch(46.867% 0.12703 149.2);
-  --success-border: oklch(78% 0.11 149.2);
-  --success-solid: oklch(55% 0.15 149.2);
-  --success-solid-fg: oklch(100% 0 none);
+  /* Priority colors - Basic HSL values */
+  --case-priority-critical: 0 72.2% 50.6%; /* red - P1 (4) */
+  --case-priority-high: 24.6 95% 53.1%; /* orange - P2 (3) */
+  --case-priority-medium: 142.1 76.2% 36.3%; /* green - P3 (2) */
+  --case-priority-low: 262.1 83.3% 57.8%; /* purple - P4 (1) */
 
-  --caution-subtle: oklch(96% 0.05 91.964);
-  --caution-fg: oklch(48.346% 0.09736 91.964);
-  --caution-border: oklch(80% 0.12 91.964);
-  --caution-solid: oklch(65.495% 0.13189 91.964);
-  --caution-solid-fg: oklch(17.743% 0.01412 248.63);
+  /* Alert Colors - Critical (Red) */
+  --alert-critical-dot: 0 72.2% 50.6%; /* The main alert dot color */
+  --alert-critical-bg: 0 100% 97%; /* Light background color */
+  --alert-critical-bg-alpha: 0 100% 97% / 0.2; /* Background with alpha */
+  --alert-critical-border: 0 100% 94%; /* Border color */
+  --alert-critical-text: 0 72.2% 50.6%; /* Text color */
+  --alert-critical-tag-bg: 0 100% 94%; /* Tag background */
+  --alert-critical-tag-text: 0 85% 40%; /* Tag text color */
+  --alert-critical-badge-bg: 0 100% 94%; /* Badge background */
+  --alert-critical-badge-text: 0 85% 40%; /* Badge text color */
+  --alert-critical-icon: 0 72.2% 50.6%; /* Icon color */
+  --alert-critical-hover: 0 100% 94% / 0.8; /* Hover state */
+  --alert-critical-active: 0 85% 40% / 0.2; /* Active state */
 
-  --warning-subtle: oklch(96% 0.04 47.602);
-  --warning-fg: oklch(49.47% 0.13111 47.602);
-  --warning-border: oklch(80% 0.13 47.602);
-  --warning-solid: oklch(58% 0.16 47.602);
-  --warning-solid-fg: oklch(100% 0 none);
+  /* Alert Colors - High (Orange) */
+  --alert-high-dot: 24.6 95% 53.1%; /* The main alert dot color */
+  --alert-high-bg: 24.6 100% 97%; /* Light background color */
+  --alert-high-bg-alpha: 24.6 100% 97% / 0.2; /* Background with alpha */
+  --alert-high-border: 24.6 100% 94%; /* Border color */
+  --alert-high-text: 24.6 95% 53.1%; /* Text color */
+  --alert-high-tag-bg: 24.6 100% 94%; /* Tag background */
+  --alert-high-tag-text: 24.6 85% 40%; /* Tag text color */
+  --alert-high-badge-bg: 24.6 100% 94%; /* Badge background */
+  --alert-high-badge-text: 24.6 85% 40%; /* Badge text color */
+  --alert-high-icon: 24.6 95% 53.1%; /* Icon color */
+  --alert-high-hover: 24.6 100% 94% / 0.8; /* Hover state */
+  --alert-high-active: 24.6 85% 40% / 0.2; /* Active state */
 
-  --danger-subtle: oklch(96% 0.04 27.319);
-  --danger-fg: oklch(50.572% 0.18848 27.319);
-  --danger-border: oklch(80% 0.13 27.319);
-  --danger-solid: oklch(58% 0.19 27.319);
-  --danger-solid-fg: oklch(100% 0 none);
+  /* Alert Colors - Medium (Yellow) */
+  --alert-medium-dot: 48 96% 53%; /* The main alert dot color */
+  --alert-medium-bg: 48 100% 97%; /* Light background color */
+  --alert-medium-bg-alpha: 48 100% 97% / 0.2; /* Background with alpha */
+  --alert-medium-border: 48 100% 94%; /* Border color */
+  --alert-medium-text: 48 96% 53%; /* Text color */
+  --alert-medium-tag-bg: 48 100% 94%; /* Tag background */
+  --alert-medium-tag-text: 48 85% 40%; /* Tag text color */
+  --alert-medium-badge-bg: 48 100% 94%; /* Badge background */
+  --alert-medium-badge-text: 48 85% 40%; /* Badge text color */
+  --alert-medium-icon: 48 96% 53%; /* Icon color */
+  --alert-medium-hover: 48 100% 94% / 0.8; /* Hover state */
+  --alert-medium-active: 48 85% 40% / 0.2; /* Active state */
+
+  /* Alert Colors - Low (Blue) */
+  --alert-low-dot: 195 85% 50%; /* The main alert dot color */
+  --alert-low-bg: 195 100% 97%; /* Light background color */
+  --alert-low-bg-alpha: 195 100% 97% / 0.2; /* Background with alpha */
+  --alert-low-border: 195 100% 94%; /* Border color */
+  --alert-low-text: 195 85% 50%; /* Text color */
+  --alert-low-tag-bg: 195 100% 94%; /* Tag background */
+  --alert-low-tag-text: 195 85% 40%; /* Tag text color */
+  --alert-low-badge-bg: 195 100% 94%; /* Badge background */
+  --alert-low-badge-text: 195 85% 40%; /* Badge text color */
+  --alert-low-icon: 195 85% 50%; /* Icon color */
+  --alert-low-hover: 195 100% 94% / 0.8; /* Hover state */
+  --alert-low-active: 195 85% 40% / 0.2; /* Active state */
+
+  /* Alert Severity Colors - Critical (Red) */
+  --severity-critical-dot: 0 72.2% 50.6%; /* The main alert dot color */
+  --severity-critical-bg: 0 100% 97%; /* Light background color */
+  --severity-critical-bg-alpha: 0 100% 97% / 0.2; /* Background with alpha */
+  --severity-critical-border: 0 100% 94%; /* Border color */
+  --severity-critical-text: 0 72.2% 50.6%; /* Text color */
+  --severity-critical-tag-bg: 0 100% 94%; /* Tag background */
+  --severity-critical-tag-text: 0 85% 40%; /* Tag text color */
+  --severity-critical-badge-bg: 0 100% 94%; /* Badge background */
+  --severity-critical-badge-text: 0 85% 40%; /* Badge text color */
+
+  /* Alert Severity Colors - High (Amber) */
+  --severity-high-dot: 38 92% 50%; /* The main alert dot color */
+  --severity-high-bg: 38 100% 97%; /* Light background color */
+  --severity-high-bg-alpha: 38 100% 97% / 0.2; /* Background with alpha */
+  --severity-high-border: 38 100% 94%; /* Border color */
+  --severity-high-text: 38 92% 50%; /* Text color */
+  --severity-high-tag-bg: 38 100% 94%; /* Tag background */
+  --severity-high-tag-text: 38 85% 40%; /* Tag text color */
+  --severity-high-badge-bg: 38 100% 94%; /* Badge background */
+  --severity-high-badge-text: 38 85% 40%; /* Badge text color */
+
+  /* Alert Severity Colors - Medium (Green) */
+  --severity-medium-dot: 142.1 76.2% 36.3%; /* The main alert dot color */
+  --severity-medium-bg: 142 70% 97%; /* Light background color */
+  --severity-medium-bg-alpha: 142 70% 97% / 0.2; /* Background with alpha */
+  --severity-medium-border: 142 70% 94%; /* Border color */
+  --severity-medium-text: 142.1 76.2% 36.3%; /* Text color */
+  --severity-medium-tag-bg: 142 70% 94%; /* Tag background */
+  --severity-medium-tag-text: 142 76% 30%; /* Tag text color */
+  --severity-medium-badge-bg: 142 70% 94%; /* Badge background */
+  --severity-medium-badge-text: 142 76% 30%; /* Badge text color */
+
+  /* Alert Severity Colors - Low (Purple) */
+  --severity-low-dot: 262.1 83.3% 57.8%; /* The main alert dot color */
+  --severity-low-bg: 262 70% 97%; /* Light background color */
+  --severity-low-bg-alpha: 262 70% 97% / 0.2; /* Background with alpha */
+  --severity-low-border: 262 70% 94%; /* Border color */
+  --severity-low-text: 262.1 83.3% 57.8%; /* Text color */
+  --severity-low-tag-bg: 262 70% 94%; /* Tag background */
+  --severity-low-tag-text: 262 83% 40%; /* Tag text color */
+  --severity-low-badge-bg: 262 70% 94%; /* Badge background */
+  --severity-low-badge-text: 262 83% 40%; /* Badge text color */
+
+  /* Case Assistant Colors */
+  --assistant-bg-start: 220 13% 18%; /* Gradient start color for assistant background */
+  --assistant-bg-end: 220 19% 10%; /* Gradient end color for assistant background */
+  --assistant-border: 220 13% 23%; /* Border color for assistant components */
+  --assistant-accent: 187 72% 64%; /* Accent color matching primary for consistency */
+  --assistant-user-msg-bg: 187 72% 64% / 0.1; /* User message background */
+  --assistant-user-msg-border: 187 72% 64% / 0.2; /* User message border */
+  --assistant-ai-msg-bg: 220 13% 20% / 0.4; /* AI message background */
+  --assistant-ai-msg-border: 220 13% 25% / 0.5; /* AI message border */
+  --assistant-button-hover: 187 72% 64% / 0.2; /* Button hover state */
+
+  /* Sidebar transition tokens (overridden by DialKit in dev) */
+  --sidebar-duration: 190ms;
+  --sidebar-easing: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --sidebar-label-duration-in: 150ms;
+  --sidebar-label-delay-in: 60ms;
+  --sidebar-label-duration-out: 100ms;
+
+  /* Animation easing curves */
+  --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+  --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+  /* ─── Intent Tokens (Mise en Mode) ─── */
+  /* Surface: non-interactive containers by elevation priority. Each tier
+     has a full curation: bg, fg, border, subtle (for "muted" fills on
+     that surface). Surface modes (below) pick from these when re-scoping
+     descendant tokens. */
+  /* Primary (modal) intentionally stays at neutral-000 in light mode —
+     same bg as the auxiliary canvas. Modals already carry elevation via
+     backdrop dimming and shadow; a bg tint on top would compete. Dialog,
+     AlertDialog, and Sheet rely on those affordances for lift in light
+     mode, and gain the tiered bg differentiation in dark. */
+  --surface-primary-bg: var(--color-neutral-000);
+  --surface-primary-fg: var(--color-slate-950);
+  --surface-primary-border: var(--color-slate-100);
+  --surface-primary-subtle: var(--color-slate-025);
+  /* Secondary (popover, SurfaceSection, etc.) goes slightly darker than
+     the canvas — light mode inverts dark's "elevation = lighter" rule
+     because neutral-000 is already the lightest possible value. slate-025
+     gives a visible tint against white without breaking the "not
+     dramatic" constraint. Subtle bumps one step to slate-050 so bg-muted
+     inside the mode doesn't collide with the bg. */
+  --surface-secondary-bg: var(--color-slate-025);
+  --surface-secondary-fg: var(--color-slate-950);
+  --surface-secondary-border: var(--color-slate-100);
+  --surface-secondary-subtle: var(--color-slate-050);
+  --surface-auxiliary-bg: var(--color-neutral-000);
+  --surface-auxiliary-fg: var(--color-slate-950);
+  --surface-auxiliary-border: var(--color-slate-100);
+  --surface-auxiliary-subtle: var(--color-slate-050);
+
+  /* Action: interactive elements by visual weight */
+  --action-primary-bg: var(--color-cyan-200);
+  --action-primary-fg: var(--color-slate-950);
+  --action-primary-border: var(--color-cyan-300);
+  --action-secondary-bg: var(--color-slate-075);
+  --action-secondary-fg: var(--color-slate-900);
+  --action-secondary-border: var(--color-slate-200);
+  --action-auxiliary-bg: transparent;
+  --action-auxiliary-fg: var(--color-cyan-500);
+  --action-auxiliary-border: transparent;
+
+  /* Control: form inputs (no priority — all inputs equal) */
+  --control-bg: var(--color-neutral-000);
+  --control-fg: var(--color-slate-950);
+  --control-border: var(--color-slate-200);
+
+  /* ─── Expression Palette (6 tones × 5 properties) ─── */
+  /* neutral: default state, no sentiment */
+  --neutral-subtle: var(--color-slate-050);
+  --neutral-fg: var(--color-slate-600);
+  --neutral-border: var(--color-slate-300);
+  --neutral-solid: var(--color-slate-500);
+  --neutral-solid-fg: var(--color-neutral-000);
+
+  /* info: informational, awareness */
+  --info-subtle: var(--color-blue-050);
+  --info-fg: var(--color-blue-600);
+  --info-border: var(--color-blue-300);
+  --info-solid: var(--color-blue-500);
+  --info-solid-fg: var(--color-neutral-000);
+
+  /* success: positive outcome, completion */
+  --success-subtle: var(--color-green-050);
+  --success-fg: var(--color-green-600);
+  --success-border: var(--color-green-300);
+  --success-solid: var(--color-green-500);
+  --success-solid-fg: var(--color-neutral-000);
+
+  /* caution: elevated concern, medium severity */
+  --caution-subtle: var(--color-yellow-050);
+  --caution-fg: var(--color-yellow-600);
+  --caution-border: var(--color-yellow-300);
+  --caution-solid: var(--color-yellow-500);
+  --caution-solid-fg: var(--color-neutral-000);
+
+  /* warning: significant concern, high severity */
+  --warning-subtle: var(--color-orange-050);
+  --warning-fg: var(--color-orange-600);
+  --warning-border: var(--color-orange-300);
+  --warning-solid: var(--color-orange-500);
+  --warning-solid-fg: var(--color-neutral-000);
+
+  /* danger: failure, destructive, blocking */
+  --danger-subtle: var(--color-red-050);
+  --danger-fg: var(--color-red-600);
+  --danger-border: var(--color-red-300);
+  --danger-solid: var(--color-red-500);
+  --danger-solid-fg: var(--color-neutral-000);
 }
 
 .dark {
-  --background: oklch(22.308% 0.02213 249.18);
-  --foreground: oklch(97.869% 0.00445 258.32);
-  --card: var(--background);
-  --card-foreground: var(--foreground);
-  --popover: var(--background);
-  --popover-foreground: var(--foreground);
-  --primary: 188 86% 48%;
-  --primary-foreground: 222.2 47.4% 11.2%;
-  --secondary: oklch(27.4% 0.024 248);
+  /* Legacy tokens aliased to Mise en Mode (see surface-* block below). */
+  --background: var(--surface-auxiliary-bg);
+  --foreground: var(--surface-auxiliary-fg);
+
+  --card: var(--surface-auxiliary-bg);
+  --card-foreground: var(--surface-auxiliary-fg);
+
+  --popover: var(--surface-secondary-bg);
+  --popover-foreground: var(--surface-secondary-fg);
+
+  --toast-bg: var(--surface-secondary-bg);
+  --toast-foreground: var(--surface-secondary-fg);
+
+  --primary: 187 72% 64%;
+  --primary-foreground: 206 58% 8.4%;
+
+  --secondary: var(--neutral-subtle);
   --secondary-foreground: 210 40% 98%;
-  --muted: oklch(27.4% 0.024 248);
+
+  --muted: var(--neutral-subtle);
   --muted-foreground: 215 20.2% 65.1%;
-  --accent: oklch(27.4% 0.024 248);
+
+  --accent: var(--neutral-subtle);
   --accent-foreground: 210 40% 98%;
-  --destructive: 0 62.8% 50.6%;
+  --accent-fade: var(--surface-secondary-bg);
+
+  --brandlight: 187 72% 64%;
+  --brandlight-foreground: 206 58% 8.4%;
+  --branddark: 206 58% 8.4%;
+  --branddark-foreground: 187 72% 64%;
+  --brand: 187 72% 64%;
+  --brand-foreground: 206 58% 8.4%;
+  --brand-complement-gold: 41.07 100% 70.78%;
+  --brand-complement-gold-foreground: 41.07 100% 29.22%;
+
+  --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 210 40% 98%;
-  --border: oklch(33% 0.024 248);
-  --input: var(--border);
-  --ring: 188 86% 48%;
 
-  --neutral-subtle: oklch(27.4% 0.024 248);
-  --neutral-fg: oklch(65.319% 0.00841 248.63);
-  --neutral-border: oklch(40% 0.02 248.6);
-  --neutral-solid: oklch(65.319% 0.00841 248.63);
-  --neutral-solid-fg: oklch(97.869% 0.00445 258.32);
+  --border: var(--surface-auxiliary-border);
+  --input: var(--surface-auxiliary-border);
+  --ring: 187 72% 64%;
 
-  --info-subtle: oklch(25% 0.05 229);
-  --info-fg: oklch(64.861% 0.12538 229);
-  --info-border: oklch(40% 0.08 229);
-  --info-solid: oklch(55% 0.11 229);
-  --info-solid-fg: oklch(97.869% 0.00445 258.32);
+  --chart-1: 220 70% 50%;
+  --chart-2: 160 60% 45%;
+  --chart-3: 30 80% 55%;
+  --chart-4: 280 65% 60%;
+  --chart-5: 340 75% 55%;
 
-  --success-subtle: oklch(24% 0.05 149.2);
-  --success-fg: oklch(62.733% 0.17004 149.2);
-  --success-border: oklch(38% 0.1 149.2);
-  --success-solid: oklch(55% 0.15 149.2);
-  --success-solid-fg: oklch(97.869% 0.00445 258.32);
+  /* Priority colors - dark mode */
+  --case-priority-critical: 0 72.2% 50.6%; /* red - P1 (4) */
+  --case-priority-high: 24.6 95% 53.1%; /* orange - P2 (3) */
+  --case-priority-medium: 142.1 76.2% 36.3%; /* green - P3 (2) */
+  --case-priority-low: 262.1 83.3% 57.8%; /* purple - P4 (1) */
 
-  --caution-subtle: oklch(24% 0.05 91.964);
-  --caution-fg: oklch(65.495% 0.13189 91.964);
-  --caution-border: oklch(40% 0.1 91.964);
-  --caution-solid: oklch(65.495% 0.13189 91.964);
-  --caution-solid-fg: oklch(17.743% 0.01412 248.63);
+  /* Alert Colors - Critical (Red) - Dark Mode */
+  --alert-critical-dot: 0 72.2% 50.6%; /* The main alert dot color */
+  --alert-critical-bg: 0 95% 15%; /* Dark background color */
+  --alert-critical-bg-alpha: 0 95% 15% / 0.1; /* Background with alpha */
+  --alert-critical-border: 0 90% 35% / 0.2; /* Border color */
+  --alert-critical-text: 0 72.2% 50.6%; /* Text color */
+  --alert-critical-tag-bg: 0 90% 30% / 0.3; /* Tag background */
+  --alert-critical-tag-text: 0 90% 70%; /* Tag text color */
+  --alert-critical-badge-bg: 0 90% 35% / 0.4; /* Badge background */
+  --alert-critical-badge-text: 0 90% 70%; /* Badge text color */
+  --alert-critical-icon: 0 72.2% 50.6%; /* Icon color */
+  --alert-critical-hover: 0 80% 50% / 0.3; /* Hover state */
+  --alert-critical-active: 0 80% 60% / 0.2; /* Active state */
 
-  --warning-subtle: oklch(24% 0.05 47.602);
-  --warning-fg: oklch(67.174% 0.17803 47.602);
-  --warning-border: oklch(40% 0.12 47.602);
-  --warning-solid: oklch(58% 0.16 47.602);
-  --warning-solid-fg: oklch(97.869% 0.00445 258.32);
+  /* Alert Colors - High (Orange) - Dark Mode */
+  --alert-high-dot: 24.6 95% 53.1%; /* The main alert dot color */
+  --alert-high-bg: 24.6 95% 15%; /* Dark background color */
+  --alert-high-bg-alpha: 24.6 95% 15% / 0.1; /* Background with alpha */
+  --alert-high-border: 24.6 90% 35% / 0.2; /* Border color */
+  --alert-high-text: 24.6 95% 53.1%; /* Text color */
+  --alert-high-tag-bg: 24.6 90% 30% / 0.3; /* Tag background */
+  --alert-high-tag-text: 24.6 90% 70%; /* Tag text color */
+  --alert-high-badge-bg: 24.6 90% 35% / 0.4; /* Badge background */
+  --alert-high-badge-text: 24.6 90% 70%; /* Badge text color */
+  --alert-high-icon: 24.6 95% 53.1%; /* Icon color */
+  --alert-high-hover: 24.6 80% 50% / 0.3; /* Hover state */
+  --alert-high-active: 24.6 80% 60% / 0.2; /* Active state */
 
-  --danger-subtle: oklch(24% 0.06 27.319);
-  --danger-fg: oklch(67.421% 0.1657 27.319);
-  --danger-border: oklch(40% 0.12 27.319);
-  --danger-solid: oklch(58% 0.19 27.319);
-  --danger-solid-fg: oklch(97.869% 0.00445 258.32);
+  /* Alert Colors - Medium (Yellow) - Dark Mode */
+  --alert-medium-dot: 48 96% 53%; /* The main alert dot color */
+  --alert-medium-bg: 48 95% 15%; /* Dark background color */
+  --alert-medium-bg-alpha: 48 95% 15% / 0.1; /* Background with alpha */
+  --alert-medium-border: 48 90% 35% / 0.2; /* Border color */
+  --alert-medium-text: 48 96% 53%; /* Text color */
+  --alert-medium-tag-bg: 48 90% 30% / 0.3; /* Tag background */
+  --alert-medium-tag-text: 48 90% 70%; /* Tag text color */
+  --alert-medium-badge-bg: 48 90% 35% / 0.4; /* Badge background */
+  --alert-medium-badge-text: 48 90% 70%; /* Badge text color */
+  --alert-medium-icon: 48 96% 53%; /* Icon color */
+  --alert-medium-hover: 48 80% 50% / 0.3; /* Hover state */
+  --alert-medium-active: 48 80% 60% / 0.2; /* Active state */
+
+  /* Alert Colors - Low (Blue) - Dark Mode */
+  --alert-low-dot: 195 85% 50%; /* The main alert dot color */
+  --alert-low-bg: 195 95% 15%; /* Dark background color */
+  --alert-low-bg-alpha: 195 95% 15% / 0.1; /* Background with alpha */
+  --alert-low-border: 195 90% 35% / 0.2; /* Border color */
+  --alert-low-text: 195 85% 50%; /* Text color */
+  --alert-low-tag-bg: 195 90% 30% / 0.3; /* Tag background */
+  --alert-low-tag-text: 195 90% 70%; /* Tag text color */
+  --alert-low-badge-bg: 195 90% 35% / 0.4; /* Badge background */
+  --alert-low-badge-text: 195 90% 70%; /* Badge text color */
+  --alert-low-icon: 195 85% 50%; /* Icon color */
+  --alert-low-hover: 195 80% 50% / 0.3; /* Hover state */
+  --alert-low-active: 195 80% 60% / 0.2; /* Active state */
+
+  /* Alert Severity Colors - Critical (Red) - Dark Mode */
+  --severity-critical-dot: 0 72.2% 50.6%; /* The main alert dot color */
+  --severity-critical-bg: 0 95% 15%; /* Dark background color */
+  --severity-critical-bg-alpha: 0 95% 15% / 0.1; /* Background with alpha */
+  --severity-critical-border: 0 90% 35% / 0.2; /* Border color */
+  --severity-critical-text: 0 72.2% 50.6%; /* Text color */
+  --severity-critical-tag-bg: 0 90% 30% / 0.3; /* Tag background */
+  --severity-critical-tag-text: 0 90% 70%; /* Tag text color */
+  --severity-critical-badge-bg: 0 90% 35% / 0.4; /* Badge background */
+  --severity-critical-badge-text: 0 90% 70%; /* Badge text color */
+
+  /* Alert Severity Colors - High (Amber) - Dark Mode */
+  --severity-high-dot: 38 92% 50%; /* The main alert dot color */
+  --severity-high-bg: 38 95% 15%; /* Dark background color */
+  --severity-high-bg-alpha: 38 95% 15% / 0.1; /* Background with alpha */
+  --severity-high-border: 38 90% 35% / 0.2; /* Border color */
+  --severity-high-text: 38 92% 50%; /* Text color */
+  --severity-high-tag-bg: 38 90% 30% / 0.3; /* Tag background */
+  --severity-high-tag-text: 38 90% 70%; /* Tag text color */
+  --severity-high-badge-bg: 38 90% 35% / 0.4; /* Badge background */
+  --severity-high-badge-text: 38 90% 70%; /* Badge text color */
+
+  /* Alert Severity Colors - Medium (Green) - Dark Mode */
+  --severity-medium-dot: 142.1 76.2% 36.3%; /* The main alert dot color */
+  --severity-medium-bg: 142 95% 15%; /* Dark background color */
+  --severity-medium-bg-alpha: 142 95% 15% / 0.1; /* Background with alpha */
+  --severity-medium-border: 142 90% 35% / 0.2; /* Border color */
+  --severity-medium-text: 142.1 76.2% 36.3%; /* Text color */
+  --severity-medium-tag-bg: 142 90% 30% / 0.3; /* Tag background */
+  --severity-medium-tag-text: 142 90% 70%; /* Tag text color */
+  --severity-medium-badge-bg: 142 90% 35% / 0.4; /* Badge background */
+  --severity-medium-badge-text: 142 90% 70%; /* Badge text color */
+
+  /* Alert Severity Colors - Low (Purple) - Dark Mode */
+  --severity-low-dot: 262.1 83.3% 57.8%; /* The main alert dot color */
+  --severity-low-bg: 262 95% 15%; /* Dark background color */
+  --severity-low-bg-alpha: 262 95% 15% / 0.1; /* Background with alpha */
+  --severity-low-border: 262 90% 35% / 0.2; /* Border color */
+  --severity-low-text: 262.1 83.3% 57.8%; /* Text color */
+  --severity-low-tag-bg: 262 90% 30% / 0.3; /* Tag background */
+  --severity-low-tag-text: 262 90% 70%; /* Tag text color */
+  --severity-low-badge-bg: 262 90% 35% / 0.4; /* Badge background */
+  --severity-low-badge-text: 262 90% 70%; /* Badge text color */
+
+  /* Case Assistant Colors - Dark Mode */
+  --assistant-bg-start: 212 30% 14%; /* Gradient start color for assistant background */
+  --assistant-bg-end: 212 40% 8%; /* Gradient end color for assistant background */
+  --assistant-border: 212 25% 20%; /* Border color for assistant components */
+  --assistant-accent: 187 72% 64%; /* Accent color matching primary for consistency */
+  --assistant-user-msg-bg: 187 72% 64% / 0.1; /* User message background */
+  --assistant-user-msg-border: 187 72% 64% / 0.2; /* User message border */
+  --assistant-ai-msg-bg: 212 20% 16% / 0.4; /* AI message background */
+  --assistant-ai-msg-border: 212 20% 20% / 0.5; /* AI message border */
+  --assistant-button-hover: 187 72% 64% / 0.2; /* Button hover state */
+
+  /* ─── Intent Tokens (Mise en Mode) ─── */
+  /* Surface — elevation ordered darker→lighter: auxiliary (canvas) → secondary
+     (popover) → primary (modal, most elevated). Each border is two weight
+     steps lighter than the tier's bg (and subtle is one step lighter) so
+     edges read with enough contrast on dark mode while keeping elevation
+     ordered predictably when surface modes nest. */
+  --surface-primary-bg: var(--color-slate-850);
+  --surface-primary-fg: var(--color-slate-050);
+  --surface-primary-border: var(--color-slate-700);
+  --surface-primary-subtle: var(--color-slate-800);
+  --surface-secondary-bg: var(--color-slate-900);
+  --surface-secondary-fg: var(--color-slate-050);
+  --surface-secondary-border: var(--color-slate-750);
+  --surface-secondary-subtle: var(--color-slate-850);
+  --surface-auxiliary-bg: var(--color-slate-950);
+  --surface-auxiliary-fg: var(--color-slate-050);
+  --surface-auxiliary-border: var(--color-slate-800);
+  --surface-auxiliary-subtle: var(--color-slate-900);
+
+  /* Action */
+  --action-primary-bg: var(--color-cyan-200);
+  --action-primary-fg: var(--color-slate-950);
+  --action-primary-border: var(--color-cyan-300);
+  --action-secondary-bg: var(--color-slate-850);
+  --action-secondary-fg: var(--color-slate-075);
+  --action-secondary-border: var(--color-slate-700);
+  --action-auxiliary-bg: transparent;
+  --action-auxiliary-fg: var(--color-cyan-300);
+  --action-auxiliary-border: transparent;
+
+  /* Control */
+  --control-bg: var(--color-slate-900);
+  --control-fg: var(--color-slate-050);
+  --control-border: var(--color-slate-750);
+
+  /* ─── Expression Palette (6 tones, dark) ─── */
+  /* neutral — subtle bumped to slate-900 so bg-muted/bg-accent render as
+     distinct from the slate-950 canvas. */
+  --neutral-subtle: var(--color-slate-900);
+  --neutral-fg: var(--color-slate-400);
+  --neutral-border: var(--color-slate-700);
+  --neutral-solid: var(--color-slate-500);
+  --neutral-solid-fg: var(--color-slate-050);
+
+  /* info */
+  --info-subtle: var(--color-blue-950);
+  --info-fg: var(--color-blue-400);
+  --info-border: var(--color-blue-700);
+  --info-solid: var(--color-blue-500);
+  --info-solid-fg: var(--color-slate-050);
+
+  /* success */
+  --success-subtle: var(--color-green-950);
+  --success-fg: var(--color-green-400);
+  --success-border: var(--color-green-700);
+  --success-solid: var(--color-green-500);
+  --success-solid-fg: var(--color-slate-050);
+
+  /* caution */
+  --caution-subtle: var(--color-yellow-950);
+  --caution-fg: var(--color-yellow-400);
+  --caution-border: var(--color-yellow-700);
+  --caution-solid: var(--color-yellow-500);
+  --caution-solid-fg: var(--color-slate-050);
+
+  /* warning */
+  --warning-subtle: var(--color-orange-950);
+  --warning-fg: var(--color-orange-400);
+  --warning-border: var(--color-orange-700);
+  --warning-solid: var(--color-orange-500);
+  --warning-solid-fg: var(--color-slate-050);
+
+  /* danger */
+  --danger-subtle: var(--color-red-950);
+  --danger-fg: var(--color-red-400);
+  --danger-border: var(--color-red-700);
+  --danger-solid: var(--color-red-500);
+  --danger-solid-fg: var(--color-slate-050);
+}
 }

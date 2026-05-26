@@ -6,6 +6,9 @@ const preview: Preview = {
   parameters: {
     controls: { matchers: { color: /(background|color)$/i, date: /Date$/i } },
     a11y: { test: 'todo' },
+    backgrounds: {
+      disabled: true,
+    },
     options: {
       storySort: {
         order: ['Foundations', 'Components'],
@@ -21,7 +24,7 @@ const preview: Preview = {
       defaultTheme: 'Light',
     }),
     Story => (
-      <div className="bg-background p-6 text-foreground antialiased">
+      <div className="contents font-sans text-foreground antialiased">
         <Story />
       </div>
     ),

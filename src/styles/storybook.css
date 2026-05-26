@@ -3,10 +3,18 @@
 
 @source inline("text-danger-fg text-warning-fg text-caution-fg text-success-fg text-info-fg text-neutral-fg");
 
+html,
+body,
+#storybook-root,
+.sb-show-main,
+.sb-main-padded,
+.docs-story {
+  background: var(--color-background) !important;
+  color: var(--color-foreground);
+}
+
 body {
   font-family: var(--font-sans);
-  background: hsl(var(--background));
-  color: hsl(var(--foreground));
 }
 
 #storybook-root {
