@@ -44,7 +44,7 @@ export interface BadgeProps
   extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof badgeVariants> {
   /** Semantic tone (expression/mode). Omit for brand default (cyan). */
   tone?: Tone;
-  /** Visual weight (priority). When set, tone/appearance system is used instead of variant. */
+  /** Visual treatment. When set, tone/appearance system is used instead of variant. */
   appearance?: Appearance;
 }
 

@@ -381,26 +381,14 @@
   --color-danger-solid-fg: var(--danger-solid-fg);
 }
 
-/* ─── Surface Modes (Mise en Mode) ─────────────────────────────────────────
-   Each mode is a complete curation of the intent set for its elevation tier.
-   Apply on elevated primitives — Dialog/AlertDialog/Sheet (primary),
-   Popover/DropdownMenu/Select/Tooltip/HoverCard/NavigationMenu (secondary).
+/* Surface modes re-scope intent tokens for elevated subtrees.
+   Doctrine: docs/design-engineering/mise-en-mode.md
+   Token details: docs/design-engineering/colors.md
 
-   Inside the scope, both the raw intent tokens (--border, --background, …)
-   AND the Tailwind @theme aliases (--color-border, --color-background, …)
-   are re-declared. The aliases are required because Tailwind's @theme emits
-   `--color-X: var(--X)` at :root; Chrome computes that once and inherits
-   the resolved value. Re-declaring at the mode forces recomputation within
-   the subtree so `bg-border`, `border-border`, `bg-muted`, etc. resolve to
-   the tier's value.
-
-   These blocks use plain CSS class selectors (not @utility) because
-   Tailwind v4's @utility directive strips custom properties in the
-   @theme namespace (--color-*). Plain class rules bypass that filter.
-
-   Auxiliary is the global default (:root / .dark); no class needed.
-   To add a new intent, curate it in :root / .dark, then re-scope here
-   plus its Tailwind alias. */
+   Implementation note: these must be plain CSS classes and must re-declare
+   both raw intents (--border) and Tailwind aliases (--color-border). Tailwind
+   v4 filters --color-* inside @utility, and browser var() resolution otherwise
+   inherits root aliases instead of recomputing inside the mode scope. */
 
 .surface-primary-mode {
   /* Intents */
@@ -456,9 +444,7 @@
 
 @layer base {
 :root {
-  /* Legacy tokens aliased to Mise en Mode (see end of :root for source values).
-     bg/fg/border call sites (bg-background, border-border, etc.) inherit through
-     these aliases; edit the --surface-* / --neutral-subtle tokens to reshape. */
+  /* Legacy semantic aliases; source values live in surface/action/control tokens below. */
   --background: var(--surface-auxiliary-bg);
   --foreground: var(--surface-auxiliary-fg);
 
@@ -509,17 +495,6 @@
   --chart-4: 43 74% 66%;
   --chart-5: 27 87% 67%;
 
-  /* Case Assistant Colors */
-  --assistant-bg-start: 220 13% 18%; /* Gradient start color for assistant background */
-  --assistant-bg-end: 220 19% 10%; /* Gradient end color for assistant background */
-  --assistant-border: 220 13% 23%; /* Border color for assistant components */
-  --assistant-accent: 187 72% 64%; /* Accent color matching primary for consistency */
-  --assistant-user-msg-bg: 187 72% 64% / 0.1; /* User message background */
-  --assistant-user-msg-border: 187 72% 64% / 0.2; /* User message border */
-  --assistant-ai-msg-bg: 220 13% 20% / 0.4; /* AI message background */
-  --assistant-ai-msg-border: 220 13% 25% / 0.5; /* AI message border */
-  --assistant-button-hover: 187 72% 64% / 0.2; /* Button hover state */
-
   /* Sidebar transition tokens (overridden by DialKit in dev) */
   --sidebar-duration: 190ms;
   --sidebar-easing: cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -551,26 +526,14 @@
   --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
   --ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
-  /* ─── Intent Tokens (Mise en Mode) ─── */
-  /* Surface: non-interactive containers by elevation priority. Each tier
-     has a full curation: bg, fg, border, subtle (for "muted" fills on
-     that surface). Surface modes (below) pick from these when re-scoping
-     descendant tokens. */
-  /* Primary (modal) intentionally stays at neutral-000 in light mode —
-     same bg as the auxiliary canvas. Modals already carry elevation via
-     backdrop dimming and shadow; a bg tint on top would compete. Dialog,
-     AlertDialog, and Sheet rely on those affordances for lift in light
-     mode, and gain the tiered bg differentiation in dark. */
+  /* Intent tokens. See docs/design-engineering/mise-en-mode.md. */
+  /* Surface tiers: non-interactive containers by elevation. */
+  /* Primary surface: modal tier. */
   --surface-primary-bg: var(--color-neutral-000);
   --surface-primary-fg: var(--color-slate-950);
   --surface-primary-border: var(--color-slate-100);
   --surface-primary-subtle: var(--color-slate-025);
-  /* Secondary (popover, SurfaceSection, etc.) goes slightly darker than
-     the canvas — light mode inverts dark's "elevation = lighter" rule
-     because neutral-000 is already the lightest possible value. slate-025
-     gives a visible tint against white without breaking the "not
-     dramatic" constraint. Subtle bumps one step to slate-050 so bg-muted
-     inside the mode doesn't collide with the bg. */
+  /* Secondary surface: floating non-modal tier. */
   --surface-secondary-bg: var(--color-slate-025);
   --surface-secondary-fg: var(--color-slate-950);
   --surface-secondary-border: var(--color-slate-100);
@@ -596,7 +559,7 @@
   --control-fg: var(--color-slate-950);
   --control-border: var(--color-slate-200);
 
-  /* ─── Expression Palette (6 tones × 5 properties) ─── */
+  /* Expression palette. See docs/design-engineering/colors.md. */
   /* neutral: default state, no sentiment */
   --neutral-subtle: var(--color-slate-050);
   --neutral-fg: var(--color-slate-600);
@@ -618,14 +581,14 @@
   --success-solid: var(--color-green-500);
   --success-solid-fg: var(--color-neutral-000);
 
-  /* caution: elevated concern, medium severity */
+  /* caution: elevated concern */
   --caution-subtle: var(--color-yellow-050);
   --caution-fg: var(--color-yellow-600);
   --caution-border: var(--color-yellow-300);
   --caution-solid: var(--color-yellow-500);
   --caution-solid-fg: var(--color-neutral-000);
 
-  /* warning: significant concern, high severity */
+  /* warning: significant concern */
   --warning-subtle: var(--color-orange-050);
   --warning-fg: var(--color-orange-600);
   --warning-border: var(--color-orange-300);
@@ -641,7 +604,7 @@
 }
 
 .dark {
-  /* Legacy tokens aliased to Mise en Mode (see surface-* block below). */
+  /* Legacy semantic aliases; source values live in surface/action/control tokens below. */
   --background: var(--surface-auxiliary-bg);
   --foreground: var(--surface-auxiliary-fg);
 
@@ -689,23 +652,8 @@
   --chart-4: 280 65% 60%;
   --chart-5: 340 75% 55%;
 
-  /* Case Assistant Colors - Dark Mode */
-  --assistant-bg-start: 212 30% 14%; /* Gradient start color for assistant background */
-  --assistant-bg-end: 212 40% 8%; /* Gradient end color for assistant background */
-  --assistant-border: 212 25% 20%; /* Border color for assistant components */
-  --assistant-accent: 187 72% 64%; /* Accent color matching primary for consistency */
-  --assistant-user-msg-bg: 187 72% 64% / 0.1; /* User message background */
-  --assistant-user-msg-border: 187 72% 64% / 0.2; /* User message border */
-  --assistant-ai-msg-bg: 212 20% 16% / 0.4; /* AI message background */
-  --assistant-ai-msg-border: 212 20% 20% / 0.5; /* AI message border */
-  --assistant-button-hover: 187 72% 64% / 0.2; /* Button hover state */
-
-  /* ─── Intent Tokens (Mise en Mode) ─── */
-  /* Surface — elevation ordered darker→lighter: auxiliary (canvas) → secondary
-     (popover) → primary (modal, most elevated). Each border is two weight
-     steps lighter than the tier's bg (and subtle is one step lighter) so
-     edges read with enough contrast on dark mode while keeping elevation
-     ordered predictably when surface modes nest. */
+  /* Intent tokens. See docs/design-engineering/mise-en-mode.md. */
+  /* Surface tiers: dark mode elevation moves darker → lighter. */
   --surface-primary-bg: var(--color-slate-850);
   --surface-primary-fg: var(--color-slate-050);
   --surface-primary-border: var(--color-slate-700);
@@ -735,9 +683,8 @@
   --control-fg: var(--color-slate-050);
   --control-border: var(--color-slate-750);
 
-  /* ─── Expression Palette (6 tones, dark) ─── */
-  /* neutral — subtle bumped to slate-900 so bg-muted/bg-accent render as
-     distinct from the slate-950 canvas. */
+  /* Expression palette, dark mode. See docs/design-engineering/colors.md. */
+  /* neutral */
   --neutral-subtle: var(--color-slate-900);
   --neutral-fg: var(--color-slate-400);
   --neutral-border: var(--color-slate-700);

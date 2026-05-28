@@ -328,13 +328,13 @@ export const TONE_GROUPS: ToneGroup[] = [
   {
     tone: 'caution',
     label: 'Caution',
-    description: 'Elevated concern, medium severity, needs attention',
+    description: 'Elevated concern, needs attention',
     hue: 'yellow',
   },
   {
     tone: 'warning',
     label: 'Warning',
-    description: 'Significant concern, high severity, degraded',
+    description: 'Significant concern, degraded',
     hue: 'orange',
   },
   {

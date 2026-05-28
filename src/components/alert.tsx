@@ -34,7 +34,7 @@ const TONE_CHILDREN =
 interface AlertProps extends React.ComponentProps<'div'>, VariantProps<typeof alertVariants> {
   /** Semantic tone (expression/mode). Omit for brand default (cyan). */
   tone?: Tone;
-  /** Visual weight (priority). When set, tone/appearance system is used instead of variant. Defaults to "subtle" for alerts. */
+  /** Visual treatment. When set, tone/appearance system is used instead of variant. Defaults to "subtle" for alerts. */
   appearance?: Appearance;
 }
 
