@@ -1,8 +1,8 @@
 # Salt
 
-> Tenex's React design system: domain-neutral UI primitives, semantic styling, and design-engineering guidance for consuming apps.
+> Tenex's design system and shared React component library: domain-neutral UI primitives, semantic styling, and design-engineering guidance for consuming apps.
 
-Salt is a React component library. Import public APIs from `@tenex-eng/salt`; do not assume Next.js, routing, server-component, or app-domain APIs belong in Salt.
+Salt is primarily a React component library packaged with design-system tokens, styles, and guidance. Import public runtime APIs from `@tenex-eng/salt`; do not assume Next.js, routing, server-component, or app-domain APIs belong in Salt.
 
 Load Salt styles once near the consuming app root:
 

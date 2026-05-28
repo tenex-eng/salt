@@ -1,6 +1,6 @@
 # Salt AI quickstart
 
-Salt is Tenex's React design system: reusable, domain-neutral UI primitives plus design-engineering guidance for consuming apps.
+Salt is Tenex's design system and shared React component library: reusable, domain-neutral UI primitives plus design-engineering guidance for consuming apps.
 
 ## First moves
 

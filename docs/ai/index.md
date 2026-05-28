@@ -4,7 +4,7 @@ Use this as the structured starting point for coding agents consuming `@tenex-en
 
 ## What Salt is
 
-Salt is Tenex's React design system. It provides generic interface language, CSS variable-backed Tailwind utilities, and reusable React components for product UI. Consuming apps keep application/domain semantics in the app.
+Salt is Tenex's design system and shared React component library. It provides generic interface language, CSS variable-backed Tailwind utilities, and reusable React components for product UI. Consuming apps keep application/domain semantics in the app.
 
 ## Consumer setup
 

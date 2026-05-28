@@ -6,7 +6,7 @@ description: >-
 
 # Salt Design System
 
-Salt is Tenex's React design system. It provides domain-neutral interface primitives, semantic styling utilities, and design-engineering guidance for consuming applications.
+Salt is Tenex's design system and shared React component library. It provides domain-neutral interface primitives, semantic styling utilities, and design-engineering guidance for consuming applications.
 
 ## When to use
 
@@ -34,7 +34,7 @@ Use this skill when:
 
 ## React library boundary
 
-Salt is a React component library only.
+Salt's runtime package API is React-only.
 
 Do:
 

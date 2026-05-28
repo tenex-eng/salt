@@ -1,6 +1,6 @@
 # @tenex-eng/salt
 
-The Salt Design System is the design system for Tenex product UI. It includes color, typography, React components and more.
+Salt is Tenex's design system and primarily its shared React component library. It packages reusable components, semantic styles/tokens, and design-engineering guidance for Tenex product UI.
 
 ## Install
 
