@@ -90,6 +90,22 @@ Start with `docs/design-engineering/index.md`, then read the topic matching the 
 - `docs/design-engineering/accessibility.md` — touch, keyboard, ARIA.
 - `docs/design-engineering/iconography.md` — icon usage.
 
+## Salt design-system skill
+
+Salt ships a canonical `salt-design-system` skill for consuming repositories. From a consumer repo, install or refresh the active skill copy with:
+
+```sh
+bunx @tenex-eng/salt salt-install-skill
+```
+
+The command copies the package skill to `.agents/skills/salt-design-system/`. That directory is the active skill copy agents should use.
+
+Tool-specific integrations may point or symlink to `.agents/skills/salt-design-system/`, but should not point directly to `node_modules/@tenex-eng/salt/skills/salt-design-system/`.
+
+The installer overwrites the Salt active copy on rerun. Keep local product guidance in separate app design-extension skills under `.agents/skills/`, not in `.agents/skills/salt-design-system/`.
+
+For Nucleus-like apps, thin app-local design guidance after adopting Salt: remove duplicated generic design-system guidance, keep Salt-wide rules in the Salt skill/docs, and preserve product-specific workflow/domain rules in an app-owned design-extension skill.
+
 ## V1 exclusions
 
 Agent legibility v1 intentionally excludes:
