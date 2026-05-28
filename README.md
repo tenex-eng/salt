@@ -41,6 +41,11 @@ export function Example() {
 }
 ```
 
+## AI entrypoints
+
+- [`AI.md`](./AI.md) — package-root quickstart for coding agents.
+- [`docs/ai.md`](./docs/ai.md) — structured agent docs index.
+
 ## Development
 
 ```sh
