@@ -1,0 +1,73 @@
+{
+  "plugins": ["typescript", "react", "react-hooks"],
+  "rules": {
+    "eqeqeq": ["warn", "always"],
+    "no-console": "warn",
+    "no-eval": "error",
+    "no-var": "warn",
+    "prefer-const": "warn",
+    "no-param-reassign": "warn",
+    "prefer-template": "warn",
+    "no-useless-return": "warn",
+    "no-template-curly-in-string": "warn",
+    "no-constant-binary-expression": "warn",
+    "no-multi-assign": "warn",
+    "no-nested-ternary": "warn",
+    "no-unneeded-ternary": "warn",
+    "no-lonely-if": "warn",
+    "no-negated-condition": "warn",
+    "yoda": "warn",
+    "no-useless-catch": "warn",
+    "no-empty": "warn",
+    "no-else-return": ["warn", { "allowElseIf": true }],
+    "max-lines-per-function": ["warn", { "max": 40 }],
+    "max-statements": ["warn", 10],
+    "complexity": ["warn", 8],
+    "max-params": ["warn", 3],
+    "max-depth": ["warn", 3],
+    "typescript/no-explicit-any": ["error", { "ignoreRestArgs": false }],
+    "typescript/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "destructuredArrayIgnorePattern": "^_"
+      }
+    ],
+    "typescript/no-floating-promises": ["warn", { "ignoreVoid": true }],
+    "typescript/await-thenable": "warn",
+    "typescript/no-unnecessary-type-assertion": "warn",
+    "typescript/no-implied-eval": "warn",
+    "typescript/no-shadow": "warn",
+    "typescript/only-throw-error": "warn",
+    "typescript/consistent-type-imports": ["warn", { "prefer": "type-imports" }],
+    "typescript/prefer-optional-chain": "warn",
+    "react/self-closing-comp": "warn",
+    "react/jsx-curly-brace-presence": "warn",
+    "react/jsx-boolean-value": "warn",
+    "react/jsx-no-useless-fragment": "warn",
+    "react/no-array-index-key": "warn",
+    "react/jsx-no-constructed-context-values": "warn",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.tsx"],
+      "rules": {
+        "max-lines-per-function": ["warn", { "max": 100 }]
+      }
+    },
+    {
+      "files": ["**/__tests__/**/*", "**/*.test.ts", "**/*.test.tsx"],
+      "rules": {
+        "no-console": "off",
+        "max-lines-per-function": "off",
+        "max-statements": "off",
+        "complexity": "off",
+        "max-params": "off",
+        "max-depth": "off"
+      }
+    }
+  ]
+}
