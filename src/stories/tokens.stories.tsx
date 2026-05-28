@@ -4,7 +4,7 @@ const meta: Meta = { title: 'Foundations/Tokens' };
 export default meta;
 
 const base = ['background', 'foreground', 'primary', 'secondary', 'muted', 'accent', 'destructive', 'border'];
-const severities = ['critical', 'high', 'medium', 'low'];
+const tones = ['neutral', 'info', 'success', 'caution', 'warning', 'danger'];
 
 export function BaseTokens() {
   return (
@@ -19,16 +19,13 @@ export function BaseTokens() {
   );
 }
 
-export function SecuritySeverityTokens() {
+export function ToneTokens() {
   return (
-    <div className="grid gap-3">
-      {severities.map(severity => (
-        <div
-          key={severity}
-          className={`rounded-lg border p-4 bg-severity-${severity}-bg text-severity-${severity}-text border-severity-${severity}-border`}
-        >
-          <div className="font-semibold capitalize">{severity}</div>
-          <code className="text-xs">bg/text/border-severity-{severity}</code>
+    <div className="grid gap-3 md:grid-cols-2">
+      {tones.map(tone => (
+        <div key={tone} className={`rounded-lg border p-4 bg-${tone}-subtle text-${tone}-fg border-${tone}-border`}>
+          <div className="font-semibold capitalize">{tone}</div>
+          <code className="text-xs">bg/text/border-{tone}</code>
         </div>
       ))}
     </div>

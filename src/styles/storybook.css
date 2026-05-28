@@ -1,5 +1,4 @@
 @import './base.css';
-@import './security.css';
 
 @source inline("text-danger-fg text-warning-fg text-caution-fg text-success-fg text-info-fg text-neutral-fg");
 

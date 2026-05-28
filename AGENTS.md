@@ -1,6 +1,6 @@
 # Salt Agent Guide
 
-Before modifying components, read `docs/DESIGN_ENGINEERING.md` and `docs/TOKENS.md`.
+Before modifying components, read `docs/design-engineering/index.md` and the relevant topic doc. For token work, read `docs/design-engineering/colors.md` and `docs/design-engineering/mise-en-mode.md`.
 
 Rules:
 - React library only; no Next.js imports.

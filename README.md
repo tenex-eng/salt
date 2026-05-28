@@ -16,11 +16,10 @@ Import styles once in the consuming app:
 import "@tenex/salt/styles.css";
 ```
 
-Or import layers explicitly:
+Or import the base layer explicitly:
 
 ```ts
 import "@tenex/salt/styles/base.css";
-import "@tenex/salt/styles/security.css";
 ```
 
 Import components from the package root:
