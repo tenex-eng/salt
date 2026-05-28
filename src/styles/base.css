@@ -317,6 +317,17 @@
   }
 }
 
+@utility animate-shimmer {
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    hsl(var(--primary) / 0.1) 8%,
+    hsl(var(--primary) / 0.2) 18%,
+    hsl(var(--primary) / 0.1) 33%
+  );
+  background-size: 2000px 100%;
+}
+
 /* Intent tokens use @theme inline because their values change at runtime (light/dark). */
 @theme inline {
   --color-surface-primary-bg: var(--surface-primary-bg);
