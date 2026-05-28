@@ -1,6 +1,6 @@
 # Salt
 
-Salt is Tenex's React design system. It provides generic interface language and reusable components while leaving application domain semantics to consuming apps.
+Salt is Tenex's design system and primarily its shared React component library. It provides generic interface language, reusable components, semantic styles/tokens, and design-engineering guidance while leaving application domain semantics to consuming apps.
 
 ## Language
 
