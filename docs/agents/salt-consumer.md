@@ -1,6 +1,6 @@
 # Salt Consumer Agent Instructions
 
-Copy this guidance into consuming app agent instructions when the app uses `@tenex/salt`.
+Copy this guidance into consuming app agent instructions when the app uses `@tenex-eng/salt`.
 
 Before implementing UI with Salt:
 

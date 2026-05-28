@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "@tenex/salt",
+      "name": "@tenex-eng/salt",
       "dependencies": {
         "@hookform/resolvers": "^5.4.0",
         "@radix-ui/react-accordion": "^1.2.3",

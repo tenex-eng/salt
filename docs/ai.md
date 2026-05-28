@@ -1,6 +1,6 @@
 # Salt AI docs index
 
-Use this as the structured starting point for coding agents consuming `@tenex/salt`.
+Use this as the structured starting point for coding agents consuming `@tenex-eng/salt`.
 
 ## What Salt is
 
@@ -11,7 +11,7 @@ Salt is Tenex's React design system. It provides generic interface language, CSS
 ### Install
 
 ```sh
-bun add @tenex/salt
+bun add @tenex-eng/salt
 ```
 
 ### Import components
@@ -19,7 +19,7 @@ bun add @tenex/salt
 Import public React APIs from the package root:
 
 ```tsx
-import { Button } from "@tenex/salt";
+import { Button } from "@tenex-eng/salt";
 ```
 
 Salt is a React library only. Do not add Next.js imports, routing APIs, server-component assumptions, or app/domain imports to Salt usage.
@@ -29,13 +29,13 @@ Salt is a React library only. Do not add Next.js imports, routing APIs, server-c
 Import styles once near the consuming app root:
 
 ```ts
-import "@tenex/salt/styles.css";
+import "@tenex-eng/salt/styles.css";
 ```
 
 If an app needs the base layer explicitly, import:
 
 ```ts
-import "@tenex/salt/styles/base.css";
+import "@tenex-eng/salt/styles/base.css";
 ```
 
 Tailwind utilities in Salt are semantic and backed by CSS variables from `src/styles/*`.
@@ -44,8 +44,8 @@ Tailwind utilities in Salt are semantic and backed by CSS variables from `src/st
 
 Do not rely on a manually maintained component map. Before using a component or type, inspect the installed package:
 
-1. Read generated type declarations first: `node_modules/@tenex/salt/dist/index.d.ts`.
-2. If source is available, read source exports next: `node_modules/@tenex/salt/src/index.ts`.
+1. Read generated type declarations first: `node_modules/@tenex-eng/salt/dist/index.d.ts`.
+2. If source is available, read source exports next: `node_modules/@tenex-eng/salt/src/index.ts`.
 3. For behavior and composition context, read the relevant component source and stories when shipped.
 
 Generated declarations are the source of truth for the installed public API. Source files provide context, not permission to import private modules unless they are explicitly exported.

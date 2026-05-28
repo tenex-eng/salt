@@ -4,18 +4,18 @@ Salt is Tenex's React design system: reusable, domain-neutral UI primitives plus
 
 ## First moves
 
-1. Install/import `@tenex/salt` from React code only. Do not use Next.js-only imports from Salt.
+1. Install/import `@tenex-eng/salt` from React code only. Do not use Next.js-only imports from Salt.
 2. Import Salt styles once in the app shell:
 
    ```ts
-   import "@tenex/salt/styles.css";
+   import "@tenex-eng/salt/styles.css";
    ```
 
-   Use `@tenex/salt/styles/base.css` only when the app needs the base layer explicitly.
+   Use `@tenex-eng/salt/styles/base.css` only when the app needs the base layer explicitly.
 
 3. Inspect the installed public API before coding:
-   - first: `node_modules/@tenex/salt/dist/index.d.ts`
-   - then, when available: `node_modules/@tenex/salt/src/index.ts` and component source for context
+   - first: `node_modules/@tenex-eng/salt/dist/index.d.ts`
+   - then, when available: `node_modules/@tenex-eng/salt/src/index.ts` and component source for context
 4. Compose exported primitives before creating custom UI.
 5. Use Salt generic interface language. Apps own domain adapters that map product terms to Salt `Tone` and `Appearance`.
 
