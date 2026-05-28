@@ -3,7 +3,7 @@
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, normalize } from 'node:path';
 
-const aiDocs = ['AI.md', 'docs/ai.md'];
+const aiDocs = ['AI.md', 'llms.txt', 'docs/ai.md', 'docs/ai/index.md'];
 const localLinkPattern = /\[[^\]]+\]\(([^)]+)\)/g;
 const missing = [];
 

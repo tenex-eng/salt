@@ -6,7 +6,9 @@ import { readFileSync } from 'node:fs';
 const requiredBin = 'salt-install-skill';
 const requiredFiles = [
   'AI.md',
+  'llms.txt',
   'docs/ai.md',
+  'docs/ai/index.md',
   'bin/install-salt-skill.mjs',
   'skills/salt-design-system/SKILL.md',
 ];

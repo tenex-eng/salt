@@ -17,7 +17,8 @@
     "docs",
     "skills",
     "README.md",
-    "AI.md"
+    "AI.md",
+    "llms.txt"
   ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
