@@ -30,11 +30,12 @@
     "build-storybook": "storybook build",
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean && bun run build:css",
     "build:css": "mkdir -p dist && cp src/styles/*.css dist/ && cp src/styles/base.css dist/styles.css",
+    "check:ai-docs": "bun run scripts/check-ai-docs.mjs",
     "check:package": "bun run scripts/check-package-contents.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "lint": "oxlint src --ignore-pattern '**/*.stories.tsx' && eslint .",
-    "check": "bun run lint && bun run typecheck && bun run test && bun run build && bun run build-storybook && bun run check:package"
+    "check": "bun run lint && bun run typecheck && bun run test && bun run build && bun run build-storybook && bun run check:ai-docs && bun run check:package"
   },
   "peerDependencies": {
     "react": ">=18.3 <20",
