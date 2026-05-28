@@ -10,10 +10,13 @@
     "registry": "https://npm.pkg.github.com",
     "access": "restricted"
   },
-  "files": ["dist", "src", "docs", "skills", "README.md", "AI.md"],
+  "files": ["bin/install-salt-skill.mjs", "dist", "src", "docs", "skills", "README.md", "AI.md"],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "bin": {
+    "salt-install-skill": "./bin/install-salt-skill.mjs"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

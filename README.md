@@ -45,6 +45,7 @@ export function Example() {
 
 - [`AI.md`](./AI.md) — package-root quickstart for coding agents.
 - [`docs/ai.md`](./docs/ai.md) — structured agent docs index.
+- `salt-install-skill` — copies the package Salt design-system skill into `.agents/skills/salt-design-system/` in a consuming repo.
 
 ## Development
 
