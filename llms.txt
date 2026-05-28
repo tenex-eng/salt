@@ -1,36 +1,41 @@
-# Salt AI quickstart
+# Salt
 
-Salt is Tenex's React design system: reusable, domain-neutral UI primitives plus design-engineering guidance for consuming apps.
+> Tenex's React design system: domain-neutral UI primitives, semantic styling, and design-engineering guidance for consuming apps.
 
-## First moves
+Salt is a React component library. Import public APIs from `@tenex-eng/salt`; do not assume Next.js, routing, server-component, or app-domain APIs belong in Salt.
 
-1. Install/import `@tenex-eng/salt` from React code only. Do not use Next.js-only imports from Salt.
-2. Import Salt styles once in the app shell:
+Load Salt styles once near the consuming app root:
 
-   ```ts
-   import "@tenex-eng/salt/styles.css";
-   ```
+```ts
+import "@tenex-eng/salt/styles.css";
+```
 
-   Use `@tenex-eng/salt/styles/base.css` only when the app needs the base layer explicitly.
+Use `@tenex-eng/salt/styles/base.css` only when the app needs the base layer explicitly.
 
-3. Inspect the installed public API before coding:
-   - first: `node_modules/@tenex-eng/salt/dist/index.d.ts`
-   - then, when available: `node_modules/@tenex-eng/salt/src/index.ts` and component source for context
-4. Compose exported primitives before creating custom UI.
-5. Use Salt generic interface language. Apps own domain adapters that map product terms to Salt `Tone` and `Appearance`.
+Before coding, inspect the installed public API:
 
-## Core language
+1. `node_modules/@tenex-eng/salt/dist/index.d.ts`
+2. `node_modules/@tenex-eng/salt/src/index.ts` and component source/stories when available
+
+Compose exported Salt primitives before creating custom UI. Use Salt's generic interface language:
 
 - `Tone`: generic color intent such as `neutral`, `info`, `success`, `caution`, `warning`, `danger`.
-- `Appearance`: generic emphasis/treatment within a component.
-- `Domain adapter`: app-owned mapping from domain terms such as severity, priority, status, or health into Salt language.
+- `Appearance`: generic emphasis or visual treatment within a component.
+- `Domain adapter`: app-owned mapping from product terms such as severity, priority, status, or health into Salt language.
 
-## Read next
+Salt v1 AI docs intentionally avoid generated inventory, `llms-full.txt`, MCP integration, and a manually maintained component map.
 
-- `docs/ai/index.md` — structured agent docs index and consumer setup.
-- `docs/design-engineering/index.md` — design-engineering rules and topic links.
-- `docs/agents/salt-consumer.md` — copyable consumer-agent guidance.
+## Docs
 
-## V1 scope
+- [Structured AI docs](docs/ai/index.md): consumer setup, API discovery, design language, and skill installation.
+- [Design engineering index](docs/design-engineering/index.md): topic map for Salt UI implementation guidance.
+- [Consumer agent instructions](docs/agents/salt-consumer.md): copyable guidance for consuming app agent instructions.
+- [Components guidance](docs/design-engineering/components.md): composition, loading/empty states, and component conventions.
+- [Color guidance](docs/design-engineering/colors.md): purpose intents, tones, expressions, and dark mode.
+- [Token architecture](docs/design-engineering/mise-en-mode.md): intent token model and semantic styling.
+- [Accessibility guidance](docs/design-engineering/accessibility.md): touch, keyboard, and ARIA rules.
 
-This package intentionally does not ship generated inventory, `llms-full.txt`, MCP integration, or a manually maintained component map.
+## Optional
+
+- [Package README](README.md): install, style imports, component import example, and development commands.
+- [Package root AI quickstart](AI.md): alternate quickstart for agents that look for `AI.md`.
