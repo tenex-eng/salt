@@ -1,6 +1,6 @@
 # @tenex-eng/salt
 
-Tenex Salt is an internal React component library for shared Tenex product UI.
+The Salt Design System is the design system for Tenex product UI. It includes color, typography, React components and more.
 
 ## Install
 
@@ -25,7 +25,13 @@ import "@tenex-eng/salt/styles/base.css";
 Import components from the package root:
 
 ```tsx
-import { Button, Card, CardContent, CardHeader, CardTitle } from "@tenex-eng/salt";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@tenex-eng/salt";
 
 export function Example() {
   return (

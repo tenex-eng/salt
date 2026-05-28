@@ -1,6 +1,6 @@
 {
   "name": "@tenex-eng/salt",
-  "version": "0.1.0",
+  "version": "0.5.0",
   "description": "Tenex Salt React component library",
   "private": false,
   "type": "module",
@@ -10,7 +10,15 @@
     "registry": "https://npm.pkg.github.com",
     "access": "restricted"
   },
-  "files": ["bin/install-salt-skill.mjs", "dist", "src", "docs", "skills", "README.md", "AI.md"],
+  "files": [
+    "bin/install-salt-skill.mjs",
+    "dist",
+    "src",
+    "docs",
+    "skills",
+    "README.md",
+    "AI.md"
+  ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -26,7 +34,9 @@
     "./styles.css": "./dist/styles.css",
     "./styles/base.css": "./dist/base.css"
   },
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "dev": "storybook dev -p 6006",
     "storybook": "storybook dev -p 6006",
