@@ -11,3 +11,17 @@ Rules:
 - Keep primitives accessible by default.
 - Add or update Storybook stories for public API changes.
 - Add interaction/unit tests for behavior changes.
+
+## Agent skills
+
+### Issue tracker
+
+Issues live in GitHub Issues for `tenex-eng/salt`. See `docs/agents/issue-tracker.md`.
+
+### Triage labels
+
+Use the default five-label triage vocabulary. See `docs/agents/triage-labels.md`.
+
+### Domain docs
+
+Single-context layout: root `CONTEXT.md` plus `docs/adr/`. See `docs/agents/domain.md`.
