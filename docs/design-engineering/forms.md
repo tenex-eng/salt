@@ -20,7 +20,7 @@ Field component system, input patterns, validation, and keyboard interactions.
 Salt uses a hierarchical field system:
 
 ```tsx
-import { Field, FieldSet, FieldGroup, FieldLabel, FieldError } from '@tenex/saltfield';
+import { Field, FieldSet, FieldGroup, FieldLabel, FieldError, Input } from '@tenex-eng/salt';
 
 <FieldSet>
   <FieldGroup>
@@ -158,7 +158,7 @@ const form = useForm({
 **Decorations:**
 
 ```tsx
-import { InputGroup, InputGroupInput, InputGroupAddon } from '@tenex/saltinput-group';
+import { InputGroup, InputGroupInput, InputGroupAddon } from '@tenex-eng/salt';
 
 // Prefix (e.g., currency symbol)
 <InputGroup>

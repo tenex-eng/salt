@@ -1,7 +1,7 @@
 ---
 name: salt-design-system
 description: >-
-  Use when building or reviewing React interfaces in apps that consume @tenex/salt. Guides agents to compose Salt primitives, read package-shipped design-engineering docs, preserve domain-neutral Tone and Appearance language, and keep product-specific guidance in app-owned design-extension skills.
+  Use when building or reviewing React interfaces in apps that consume @tenex-eng/salt. Guides agents to compose Salt primitives, read package-shipped design-engineering docs, preserve domain-neutral Tone and Appearance language, and keep product-specific guidance in app-owned design-extension skills.
 ---
 
 # Salt Design System
@@ -12,7 +12,7 @@ Salt is Tenex's design system and shared React component library. It provides do
 
 Use this skill when:
 
-- building UI in a React app that depends on `@tenex/salt`,
+- building UI in a React app that depends on `@tenex-eng/salt`,
 - choosing Salt components, tones, appearances, or semantic utilities,
 - deciding whether UI belongs in Salt or in the consuming app,
 - reviewing app UI for Salt design-system fit.
@@ -22,13 +22,13 @@ Use this skill when:
 1. Confirm the app imports Salt styles once near the app root:
 
    ```ts
-   import "@tenex/salt/styles.css";
+   import "@tenex-eng/salt/styles.css";
    ```
 
 2. Inspect the installed public API before coding:
-   - first: `node_modules/@tenex/salt/dist/index.d.ts`,
-   - then, when available: `node_modules/@tenex/salt/src/index.ts`, component source, and stories for context.
-3. Read `node_modules/@tenex/salt/docs/design-engineering/index.md`.
+   - first: `node_modules/@tenex-eng/salt/dist/index.d.ts`,
+   - then, when available: `node_modules/@tenex-eng/salt/src/index.ts`, component source, and stories for context.
+3. Read `node_modules/@tenex-eng/salt/docs/design-engineering/index.md`.
 4. Read the topic doc matching the task instead of guessing patterns.
 5. Compose exported Salt primitives before creating custom UI.
 
@@ -38,7 +38,7 @@ Salt's runtime package API is React-only.
 
 Do:
 
-- import components from `@tenex/salt`,
+- import components from `@tenex-eng/salt`,
 - use exported types and primitives,
 - use semantic Tailwind utilities backed by Salt CSS variables.
 
@@ -108,7 +108,7 @@ Keep the domain terms in the app. Pass Salt the mapped `Tone`, `Appearance`, and
 
 ## Salt primitives vs product-specific components
 
-Salt primitives are reusable, domain-neutral building blocks exported by `@tenex/salt`.
+Salt primitives are reusable, domain-neutral building blocks exported by `@tenex-eng/salt`.
 
 Product-specific components belong in the consuming app when they express:
 

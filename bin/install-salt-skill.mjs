@@ -58,7 +58,7 @@ function main() {
     console.log(`Installed ${skillName} skill to ${destination}`);
     console.log('Next steps:');
     console.log(`- Ensure your agent loads skills from ${repoRoot}/.agents/skills`);
-    console.log(`- Use ${skillName} when building React UI with @tenex/salt`);
+    console.log(`- Use ${skillName} when building React UI with @tenex-eng/salt`);
   } catch (error) {
     console.error(error instanceof Error ? error.message : String(error));
     process.exit(1);
