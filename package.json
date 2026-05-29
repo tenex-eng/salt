@@ -17,6 +17,7 @@
     "docs",
     "skills",
     "README.md",
+    "CHANGELOG.md",
     "AI.md",
     "llms.txt"
   ],
@@ -53,6 +54,9 @@
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "lint": "oxlint src --ignore-pattern '**/*.stories.tsx' && eslint .",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
     "check": "bun run lint && bun run typecheck && bun run test && bun run build && bun run check:public-surface && bun run check:css-contract && bun run check:runtime-deps && bun run build-storybook && bun run check:ai-docs && bun run check:package"
   },
   "peerDependencies": {
@@ -96,6 +100,7 @@
     "tailwind-merge": "^3.0.1"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@hookform/resolvers": "^5.4.0",
     "@radix-ui/react-visually-hidden": "^1.2.4",
     "@storybook/addon-a11y": "^10.1.4",
