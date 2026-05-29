@@ -25,17 +25,30 @@ PR CI requires a changeset when package-visible files change (`src`, `bin`, `doc
 
 1. Merge feature PRs with `.changeset/*.md` files.
 2. The Release workflow runs on `main` and reports pending changesets without publishing.
-3. Create a version branch locally: `git checkout -b chore/version-packages`.
-4. Run `bun run version-packages`.
-5. Commit the generated version bump and `CHANGELOG.md`: `git add package.json CHANGELOG.md .changeset && git commit -m "chore: version packages"`.
-6. Push the branch and open a PR.
-7. Merge the version PR.
-8. The Release workflow runs again, builds the package, publishes to GitHub Packages, and creates the release tag.
+3. Prepare a version PR:
+   ```bash
+   bun run prepare-release
+   ```
+4. Merge the version PR.
+5. The Release workflow runs again, builds the package, publishes to GitHub Packages, and creates the release tag.
+
+`prepare-release` checks for pending changesets, creates a timestamped `chore/version-packages-*` branch from current `main`, runs `bun run version-packages`, runs `bun run check`, commits `package.json`, `CHANGELOG.md`, and consumed `.changeset` files, pushes the branch, and opens the PR.
+
+## Manual version PR flow
+
+Use this if the helper script is blocked:
+
+1. Create a version branch locally: `git checkout -b chore/version-packages`.
+2. Run `bun run version-packages`.
+3. Run `bun run check`.
+4. Commit the generated version bump and `CHANGELOG.md`: `git add package.json CHANGELOG.md .changeset && git commit -m "chore: version packages"`.
+5. Push the branch and open a PR.
 
 ## Local commands
 
 ```bash
 bun run changeset          # create a changeset
+bun run prepare-release    # prepare and open a version PR
 bun run version-packages   # apply pending changesets locally
 bun run release            # publish locally; normally CI does this
 bun run check              # full verification gate
