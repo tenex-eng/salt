@@ -52,6 +52,20 @@ export function Example() {
 }
 ```
 
+## Runtime dependency contract
+
+Salt bundles low-level styling and Radix primitive dependencies used internally by public components.
+
+Consumer-installed peer dependencies:
+
+- `react` / `react-dom` `>=18.3 <20` — required for all components.
+- `@tanstack/react-hotkeys` `^0.10.0` — required when using `Sidebar`; used for the `Mod+B` shortcut.
+- `sonner` `^2.0.7` — required when using `Toaster`; use the same app-installed `sonner` package for toast calls.
+- `next-themes` `^0.4.6` — optional peer for `Toaster` theme syncing; if omitted, Salt falls back to the document `.dark` class.
+- `react-day-picker` `^9.11.3` and `date-fns` `^4.3.0` — required when using `Calendar` or `DateTimePicker`; locales passed to `DateTimePicker` should come from the same `date-fns` major.
+
+Docs/story/test-only packages such as `react-hook-form`, `zod`, `recharts`, `vaul`, `input-otp`, and carousel helpers are dev-only and are not part of Salt's runtime dependency contract.
+
 ## AI entrypoints
 
 - [`llms.txt`](./llms.txt) / [`AI.md`](./AI.md) — package-root quickstarts for coding agents.
