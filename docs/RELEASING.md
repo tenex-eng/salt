@@ -22,11 +22,13 @@ No changeset needed for internal CI, tests, refactors, or docs that do not need 
 ## Release flow
 
 1. Merge feature PRs with `.changeset/*.md` files.
-2. The Release workflow runs on `main`.
-3. Changesets opens `chore: version packages`.
-4. Review the generated version bump and `CHANGELOG.md`.
-5. Merge the version PR.
-6. The Release workflow runs again, builds the package, publishes to GitHub Packages, and creates the release tag.
+2. The Release workflow runs on `main` and reports pending changesets without publishing.
+3. Create a version branch locally: `git checkout -b chore/version-packages`.
+4. Run `bun run version-packages`.
+5. Commit the generated version bump and `CHANGELOG.md`: `git add package.json CHANGELOG.md .changeset && git commit -m "chore: version packages"`.
+6. Push the branch and open a PR.
+7. Merge the version PR.
+8. The Release workflow runs again, builds the package, publishes to GitHub Packages, and creates the release tag.
 
 ## Local commands
 
@@ -37,8 +39,8 @@ bun run release            # publish locally; normally CI does this
 bun run check              # full verification gate
 ```
 
-Only run `version-packages` or `release` locally when intentionally managing a release outside CI.
+Only run `version-packages` locally when preparing a version PR. Only run `release` locally when intentionally publishing outside CI.
 
 ## GitHub Packages auth
 
-The workflow publishes with `GITHUB_TOKEN` and `packages: write` permission. If GitHub Packages rejects the token because package ownership is not linked to this repo, add a package-scoped token and switch `NODE_AUTH_TOKEN` in `.github/workflows/release.yml`.
+The workflow publishes with `GITHUB_TOKEN` and `packages: write` permission. Enterprise policy blocks Actions-created PRs, so maintainers create version PRs manually. If GitHub Packages rejects the token because package ownership is not linked to this repo, add a package-scoped token and switch `NODE_AUTH_TOKEN` in `.github/workflows/release.yml`.
