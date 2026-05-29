@@ -49,6 +49,18 @@ The installer is safe to rerun and overwrites `.agents/skills/salt-design-system
 
 Use app design-extension skills for product workflows, domain vocabulary, app-specific component patterns, and local examples. Keep the Salt design-system skill domain-neutral.
 
+## Shim migration pilot pattern
+
+For Nucleus-like apps, prefer a shim pilot before codemodding call sites:
+
+1. Add `@tenex-eng/salt` as a package dependency.
+2. Load styles through the app's CSS contract. Tailwind v4 apps keep one app-owned `@import 'tailwindcss'` and then import `@tenex-eng/salt/styles/tailwind.css`.
+3. Replace high-volume local primitive files such as `src/components/ui/button.tsx`, `badge.tsx`, `input.tsx`, `card.tsx`, and `separator.tsx` with package-root re-exports from Salt.
+4. Run the app's frontend checks and classify failures as Salt blockers, app-local blockers, or expected migration follow-ups.
+5. Do not promote app-domain components into Salt during the pilot.
+
+See `docs/agents/nucleus-shim-pilot.md` for the Nucleus test-fit notes and known follow-ups.
+
 ## Migrating app-local design guidance
 
 Nucleus-like apps with existing app-local design-engineering guidance can thin or replace it after adopting Salt:

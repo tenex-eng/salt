@@ -56,8 +56,8 @@
     "check": "bun run lint && bun run typecheck && bun run test && bun run build && bun run check:public-surface && bun run check:css-contract && bun run check:runtime-deps && bun run build-storybook && bun run check:ai-docs && bun run check:package"
   },
   "peerDependencies": {
-    "@tanstack/react-hotkeys": "^0.10.0",
-    "date-fns": "^4.3.0",
+    "@tanstack/react-hotkeys": ">=0.1 <1",
+    "date-fns": ">=4.1 <5",
     "next-themes": "^0.4.6",
     "react": ">=18.3 <20",
     "react-day-picker": "^9.11.3",

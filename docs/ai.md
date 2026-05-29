@@ -48,10 +48,10 @@ Use `@tenex-eng/salt/styles/base.css` only for advanced custom pipelines that al
 Salt bundles Radix and low-level styling dependencies used internally. Consumers must install peer dependencies for the components they use:
 
 - `react` / `react-dom` `>=18.3 <20` — all components.
-- `@tanstack/react-hotkeys` `^0.10.0` — `Sidebar` keyboard shortcut support.
+- `@tanstack/react-hotkeys` `>=0.1 <1` — `Sidebar` keyboard shortcut support.
 - `sonner` `^2.0.7` — `Toaster`; toast calls should use the same app-installed package.
 - `next-themes` `^0.4.6` — optional `Toaster` theme sync; without it, Salt reads the document `.dark` class.
-- `react-day-picker` `^9.11.3` and `date-fns` `^4.3.0` — `Calendar` and `DateTimePicker`.
+- `react-day-picker` `^9.11.3` and `date-fns` `>=4.1 <5` — `Calendar` and `DateTimePicker`.
 
 Docs/story/test-only packages are dev-only and not runtime requirements.
 

@@ -52,6 +52,14 @@ if (runtimeDependencies['next-themes'] || runtimeDependencies.sonner || runtimeD
   failures.push('contextful/provider-sensitive public component packages must not be bundled runtime dependencies');
 }
 
+if (peerDependencies['@tanstack/react-hotkeys'] !== '>=0.1 <1') {
+  failures.push('@tanstack/react-hotkeys peer range must include Nucleus 0.1.x and newer compatible 0.x releases');
+}
+
+if (peerDependencies['date-fns'] !== '>=4.1 <5') {
+  failures.push('date-fns peer range must include Nucleus 4.1.x and stay within major 4');
+}
+
 if (packageJson.peerDependenciesMeta?.['next-themes']?.optional !== true) {
   failures.push('next-themes peer must be optional because Toaster has DOM .dark fallback');
 }
