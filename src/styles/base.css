@@ -411,6 +411,10 @@
   --control-fg: var(--surface-primary-fg);
   --control-border: var(--surface-primary-border);
   --neutral-subtle: var(--surface-primary-subtle);
+  --muted: var(--surface-primary-subtle);
+  --accent: var(--surface-primary-subtle);
+  --secondary: var(--surface-primary-subtle);
+  --accent-fade: var(--surface-primary-subtle);
 
   /* Tailwind @theme alias chain */
   --color-background: var(--surface-primary-bg);
@@ -420,8 +424,11 @@
   --color-border: var(--surface-primary-border);
   --color-input: var(--surface-primary-border);
   --color-muted: var(--surface-primary-subtle);
+  --color-muted-foreground: var(--neutral-fg);
   --color-accent: var(--surface-primary-subtle);
+  --color-accent-foreground: var(--surface-primary-fg);
   --color-secondary: var(--surface-primary-subtle);
+  --color-secondary-foreground: var(--surface-primary-fg);
   --color-accent-fade: var(--surface-primary-subtle);
 }
 
@@ -437,6 +444,10 @@
   --control-fg: var(--surface-secondary-fg);
   --control-border: var(--surface-secondary-border);
   --neutral-subtle: var(--surface-secondary-subtle);
+  --muted: var(--surface-secondary-subtle);
+  --accent: var(--surface-secondary-subtle);
+  --secondary: var(--surface-secondary-subtle);
+  --accent-fade: var(--surface-secondary-subtle);
 
   /* Tailwind @theme alias chain */
   --color-background: var(--surface-secondary-bg);
@@ -446,8 +457,11 @@
   --color-border: var(--surface-secondary-border);
   --color-input: var(--surface-secondary-border);
   --color-muted: var(--surface-secondary-subtle);
+  --color-muted-foreground: var(--neutral-fg);
   --color-accent: var(--surface-secondary-subtle);
+  --color-accent-foreground: var(--surface-secondary-fg);
   --color-secondary: var(--surface-secondary-subtle);
+  --color-secondary-foreground: var(--surface-secondary-fg);
   --color-accent-fade: var(--surface-secondary-subtle);
 }
 
@@ -691,6 +705,59 @@
   --control-bg: var(--color-slate-900);
   --control-fg: var(--color-slate-050);
   --control-border: var(--color-slate-750);
+
+  /* Tailwind @theme alias chain for scoped dark mode. */
+  --color-background: var(--surface-auxiliary-bg);
+  --color-foreground: var(--surface-auxiliary-fg);
+  --color-card: var(--surface-auxiliary-bg);
+  --color-card-foreground: var(--surface-auxiliary-fg);
+  --color-popover: var(--surface-secondary-bg);
+  --color-popover-foreground: var(--surface-secondary-fg);
+  --color-toast-bg: var(--surface-secondary-bg);
+  --color-toast-foreground: var(--surface-secondary-fg);
+  --color-border: var(--surface-auxiliary-border);
+  --color-input: var(--surface-auxiliary-border);
+  --color-muted: var(--neutral-subtle);
+  --color-accent: var(--neutral-subtle);
+  --color-secondary: var(--neutral-subtle);
+  --color-accent-fade: var(--surface-secondary-bg);
+  --color-surface-primary-bg: var(--surface-primary-bg);
+  --color-surface-primary-fg: var(--surface-primary-fg);
+  --color-surface-primary-border: var(--surface-primary-border);
+  --color-surface-secondary-bg: var(--surface-secondary-bg);
+  --color-surface-secondary-fg: var(--surface-secondary-fg);
+  --color-surface-secondary-border: var(--surface-secondary-border);
+  --color-surface-auxiliary-bg: var(--surface-auxiliary-bg);
+  --color-surface-auxiliary-fg: var(--surface-auxiliary-fg);
+  --color-surface-auxiliary-border: var(--surface-auxiliary-border);
+  --color-action-primary-bg: var(--action-primary-bg);
+  --color-action-primary-fg: var(--action-primary-fg);
+  --color-action-primary-border: var(--action-primary-border);
+  --color-action-secondary-bg: var(--action-secondary-bg);
+  --color-action-secondary-fg: var(--action-secondary-fg);
+  --color-action-secondary-border: var(--action-secondary-border);
+  --color-action-auxiliary-bg: var(--action-auxiliary-bg);
+  --color-action-auxiliary-fg: var(--action-auxiliary-fg);
+  --color-action-auxiliary-border: var(--action-auxiliary-border);
+  --color-control-bg: var(--control-bg);
+  --color-control-fg: var(--control-fg);
+  --color-control-border: var(--control-border);
+  --color-ring: hsl(var(--ring));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-brandlight: hsl(var(--brandlight));
+  --color-brandlight-foreground: hsl(var(--brandlight-foreground));
+  --color-branddark: hsl(var(--branddark));
+  --color-branddark-foreground: hsl(var(--branddark-foreground));
+  --color-brand: hsl(var(--brand));
+  --color-brand-foreground: hsl(var(--brand-foreground));
+  --color-brandcomplement: hsl(var(--brand-complement-gold));
+  --color-brandcomplement-foreground: hsl(var(--brand-complement-gold-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
 
   /* Expression palette, dark mode. See docs/design-engineering/colors.md. */
   /* neutral */

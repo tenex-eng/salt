@@ -48,7 +48,8 @@
     "build:css": "bun run scripts/build-css.mjs",
     "check:ai-docs": "bun run scripts/check-ai-docs.mjs",
     "check:package": "bun run scripts/check-package-contents.mjs",
-    "check:css-contract": "bun run scripts/check-css-contract.mjs",
+    "check:dist-contract": "bun run scripts/check-dist-contract.mjs",
+    "check:css-contract": "bun run check:dist-contract",
     "check:public-surface": "bun run scripts/check-public-surface.mjs",
     "check:runtime-deps": "bun run scripts/check-runtime-dependencies.mjs",
     "check:changeset": "node scripts/check-changeset-required.mjs",
@@ -58,7 +59,7 @@
     "changeset": "changeset",
     "version-packages": "changeset version",
     "release": "changeset publish",
-    "check": "bun run lint && bun run typecheck && bun run test && bun run build && bun run check:public-surface && bun run check:css-contract && bun run check:runtime-deps && bun run build-storybook && bun run check:ai-docs && bun run check:package"
+    "check": "bun run lint && bun run typecheck && bun run test && bun run build && bun run check:public-surface && bun run check:dist-contract && bun run check:runtime-deps && bun run build-storybook && bun run check:ai-docs && bun run check:package"
   },
   "peerDependencies": {
     "@tanstack/react-hotkeys": ">=0.1 <1",
