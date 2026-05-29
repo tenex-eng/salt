@@ -1,4 +1,6 @@
+@import 'tailwindcss';
 @import './base.css';
+@source '../**/*.{ts,tsx}';
 
 @source inline("text-danger-fg text-warning-fg text-caution-fg text-success-fg text-info-fg text-neutral-fg");
 

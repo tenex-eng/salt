@@ -26,19 +26,22 @@ Salt is a React library only. Do not add Next.js imports, routing APIs, server-c
 
 ### Load styles
 
-Import styles once near the consuming app root:
+Import styles once near the consuming app root.
+
+Non-Tailwind consumers load standalone compiled CSS:
 
 ```ts
 import "@tenex-eng/salt/styles.css";
 ```
 
-If an app needs the base layer explicitly, import:
+Tailwind v4 consumers keep the app-owned single Tailwind import, then load Salt's integration CSS:
 
-```ts
-import "@tenex-eng/salt/styles/base.css";
+```css
+@import "tailwindcss";
+@import "@tenex-eng/salt/styles/tailwind.css";
 ```
 
-Tailwind utilities in Salt are semantic and backed by CSS variables from `src/styles/*`.
+Use `@tenex-eng/salt/styles/base.css` only for advanced custom pipelines that already provide Tailwind source scanning and compiler setup. Tailwind utilities in Salt are semantic and backed by CSS variables from `src/styles/*`.
 
 ## Discover the installed API
 

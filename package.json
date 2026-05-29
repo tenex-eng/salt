@@ -33,7 +33,8 @@
       "require": "./dist/index.cjs"
     },
     "./styles.css": "./dist/styles.css",
-    "./styles/base.css": "./dist/base.css"
+    "./styles/base.css": "./dist/base.css",
+    "./styles/tailwind.css": "./dist/tailwind.css"
   },
   "sideEffects": [
     "**/*.css"
@@ -43,14 +44,15 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean && bun run build:css",
-    "build:css": "mkdir -p dist && cp src/styles/*.css dist/ && cp src/styles/base.css dist/styles.css",
+    "build:css": "bun run scripts/build-css.mjs",
     "check:ai-docs": "bun run scripts/check-ai-docs.mjs",
     "check:package": "bun run scripts/check-package-contents.mjs",
+    "check:css-contract": "bun run scripts/check-css-contract.mjs",
     "check:public-surface": "bun run scripts/check-public-surface.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "lint": "oxlint src --ignore-pattern '**/*.stories.tsx' && eslint .",
-    "check": "bun run lint && bun run typecheck && bun run test && bun run build && bun run check:public-surface && bun run build-storybook && bun run check:ai-docs && bun run check:package"
+    "check": "bun run lint && bun run typecheck && bun run test && bun run build && bun run check:public-surface && bun run check:css-contract && bun run build-storybook && bun run check:ai-docs && bun run check:package"
   },
   "peerDependencies": {
     "react": ">=18.3 <20",

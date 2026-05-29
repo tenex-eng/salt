@@ -4,13 +4,19 @@
 
 Salt is primarily a React component library packaged with design-system tokens, styles, and guidance. Import public runtime APIs from `@tenex-eng/salt`; do not assume Next.js, routing, server-component, or app-domain APIs belong in Salt.
 
-Load Salt styles once near the consuming app root:
+Load Salt styles once near the consuming app root. Non-Tailwind consumers use compiled CSS:
 
 ```ts
 import "@tenex-eng/salt/styles.css";
 ```
 
-Use `@tenex-eng/salt/styles/base.css` only when the app needs the base layer explicitly.
+Tailwind v4 consumers keep one app-owned `@import "tailwindcss"`, then add:
+
+```css
+@import "@tenex-eng/salt/styles/tailwind.css";
+```
+
+Use `@tenex-eng/salt/styles/base.css` only for advanced custom pipelines.
 
 Before coding, inspect the installed public API:
 

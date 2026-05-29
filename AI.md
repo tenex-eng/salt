@@ -5,13 +5,19 @@ Salt is Tenex's design system and shared React component library: reusable, doma
 ## First moves
 
 1. Install/import `@tenex-eng/salt` from React code only. Do not use Next.js-only imports from Salt.
-2. Import Salt styles once in the app shell:
+2. Import Salt styles once in the app shell. Non-Tailwind consumers use compiled CSS:
 
    ```ts
    import "@tenex-eng/salt/styles.css";
    ```
 
-   Use `@tenex-eng/salt/styles/base.css` only when the app needs the base layer explicitly.
+   Tailwind v4 consumers keep one app-owned `@import "tailwindcss"`, then add:
+
+   ```css
+   @import "@tenex-eng/salt/styles/tailwind.css";
+   ```
+
+   Use `@tenex-eng/salt/styles/base.css` only for advanced custom pipelines.
 
 3. Inspect the installed public API before coding:
    - first: `node_modules/@tenex-eng/salt/dist/index.d.ts`

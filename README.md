@@ -10,17 +10,22 @@ bun add @tenex-eng/salt
 
 ## Usage
 
-Import styles once in the consuming app:
+Import styles once in the consuming app.
+
+Non-Tailwind consumers: load Salt's standalone compiled CSS:
 
 ```ts
 import "@tenex-eng/salt/styles.css";
 ```
 
-Or import the base layer explicitly:
+Tailwind v4 consumers: keep your app's single Tailwind import, then load Salt's integration CSS:
 
-```ts
-import "@tenex-eng/salt/styles/base.css";
+```css
+@import "tailwindcss";
+@import "@tenex-eng/salt/styles/tailwind.css";
 ```
+
+Use `@tenex-eng/salt/styles/base.css` only for advanced custom pipelines that already provide Tailwind source scanning and compiler setup.
 
 Import components from the package root:
 
