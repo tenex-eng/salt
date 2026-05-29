@@ -1,6 +1,6 @@
 {
   "name": "@tenex-eng/salt",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Tenex design system and React component library",
   "private": false,
   "type": "module",
