@@ -57,6 +57,7 @@
     "test": "vitest run",
     "lint": "oxlint src --ignore-pattern '**/*.stories.tsx' && eslint .",
     "changeset": "changeset",
+    "prepare-release": "bun run scripts/prepare-release.mjs",
     "version-packages": "changeset version",
     "release": "changeset publish",
     "check": "bun run lint && bun run typecheck && bun run test && bun run build && bun run check:public-surface && bun run check:dist-contract && bun run check:runtime-deps && bun run build-storybook && bun run check:ai-docs && bun run check:package"
