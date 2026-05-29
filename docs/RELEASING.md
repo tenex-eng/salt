@@ -19,6 +19,8 @@ Pick the smallest useful bump:
 
 No changeset needed for internal CI, tests, refactors, or docs that do not need a package release.
 
+PR CI requires a changeset when package-visible files change (`src`, `bin`, `docs`, `skills`, `README.md`, `AI.md`, `llms.txt`, or `package.json`). Version PRs are exempt because they consume pending changesets.
+
 ## Release flow
 
 1. Merge feature PRs with `.changeset/*.md` files.

@@ -51,6 +51,7 @@
     "check:css-contract": "bun run scripts/check-css-contract.mjs",
     "check:public-surface": "bun run scripts/check-public-surface.mjs",
     "check:runtime-deps": "bun run scripts/check-runtime-dependencies.mjs",
+    "check:changeset": "node scripts/check-changeset-required.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "lint": "oxlint src --ignore-pattern '**/*.stories.tsx' && eslint .",
