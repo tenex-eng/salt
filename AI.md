@@ -4,8 +4,9 @@ Salt is Tenex's design system and shared React component library: reusable, doma
 
 ## First moves
 
-1. Install/import `@tenex-eng/salt` from React code only. Do not use Next.js-only imports from Salt.
-2. Import Salt styles once in the app shell. Non-Tailwind consumers use compiled CSS:
+1. Configure private GitHub Packages auth before installing Salt. Use a GitHub Classic Token from the TENEX Engineering Vault as `NODE_AUTH_TOKEN`; do not commit the token.
+2. Install/import `@tenex-eng/salt` from React code only. Do not use Next.js-only imports from Salt.
+3. Import Salt styles once in the app shell. Non-Tailwind consumers use compiled CSS:
 
    ```ts
    import "@tenex-eng/salt/styles.css";
@@ -19,11 +20,11 @@ Salt is Tenex's design system and shared React component library: reusable, doma
 
    Use `@tenex-eng/salt/styles/base.css` only for advanced custom pipelines.
 
-3. Inspect the installed public API before coding:
+4. Inspect the installed public API before coding:
    - first: `node_modules/@tenex-eng/salt/dist/index.d.ts`
    - then, when available: `node_modules/@tenex-eng/salt/src/index.ts` and component source for context
-4. Compose exported primitives before creating custom UI.
-5. Use Salt generic interface language. Apps own domain adapters that map product terms to Salt `Tone` and `Appearance`.
+5. Compose exported primitives before creating custom UI.
+6. Use Salt generic interface language. Apps own domain adapters that map product terms to Salt `Tone` and `Appearance`.
 
 ## Core language
 

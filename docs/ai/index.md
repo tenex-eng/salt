@@ -8,6 +8,17 @@ Salt is Tenex's design system and shared React component library. It provides ge
 
 ## Consumer setup
 
+### Package auth
+
+Salt is private on GitHub Packages. Before installing, configure the consuming repo's `.npmrc`:
+
+```ini
+@tenex-eng:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+```
+
+Use the shared GitHub Classic Token from the TENEX Engineering Vault as `NODE_AUTH_TOKEN` for local installs and CI package reads. Do not commit the token.
+
 ### Install
 
 ```sh

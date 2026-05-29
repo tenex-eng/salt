@@ -4,6 +4,8 @@
 
 Salt is primarily a React component library packaged with design-system tokens, styles, and guidance. Import public runtime APIs from `@tenex-eng/salt`; do not assume Next.js, routing, server-component, or app-domain APIs belong in Salt.
 
+Salt is private on GitHub Packages. Configure `.npmrc` and `NODE_AUTH_TOKEN` with the TENEX Engineering Vault GitHub Classic Token before installing; do not commit the token.
+
 Load Salt styles once near the consuming app root. Non-Tailwind consumers use compiled CSS:
 
 ```ts

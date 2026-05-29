@@ -4,6 +4,8 @@ Salt is Tenex's design system and primarily its shared React component library. 
 
 ## Install
 
+Salt is a private Tenex package on GitHub Packages. Configure package auth first; see [`docs/consuming.md`](./docs/consuming.md).
+
 ```sh
 bun add @tenex-eng/salt
 ```
@@ -96,3 +98,5 @@ bun run check
 ## Publishing
 
 Internal package, semver, GitHub Packages registry: `https://npm.pkg.github.com`.
+
+Consumer installs require GitHub Packages auth with a classic token that has `read:packages`; see [`docs/consuming.md`](./docs/consuming.md).

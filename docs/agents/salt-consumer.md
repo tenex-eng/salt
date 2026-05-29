@@ -23,6 +23,17 @@ const SEVERITY_TONE = {
 
 Do not add app-specific terms such as severity, priority, case status, or system health to Salt core APIs or tokens.
 
+## Package auth
+
+Salt is private on GitHub Packages. Before installing, configure the consuming repo's `.npmrc` with the Tenex package registry and `NODE_AUTH_TOKEN` placeholder:
+
+```ini
+@tenex-eng:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+```
+
+Use the shared GitHub Classic Token from the TENEX Engineering Vault for local installs and CI package reads. It is for consumers only; do not commit it. See `docs/consuming.md` in Salt for the full consumer setup.
+
 ## Salt design-system skill
 
 Salt ships a canonical `salt-design-system` skill for consuming repos.

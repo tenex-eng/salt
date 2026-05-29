@@ -43,4 +43,10 @@ Only run `version-packages` locally when preparing a version PR. Only run `relea
 
 ## GitHub Packages auth
 
+### Publishing
+
 The workflow publishes with `GITHUB_TOKEN` and `packages: write` permission. Enterprise policy blocks Actions-created PRs, so maintainers create version PRs manually. If GitHub Packages rejects the token because package ownership is not linked to this repo, add a package-scoped token and switch `NODE_AUTH_TOKEN` in `.github/workflows/release.yml`.
+
+### Consuming
+
+Consumer installs are separate from publishing. Since Salt is private, consuming repos and local developers need GitHub Packages read auth. Use the shared GitHub Classic Token from the TENEX Engineering Vault for `NODE_AUTH_TOKEN`; it needs `read:packages`. See [`consuming.md`](./consuming.md).
